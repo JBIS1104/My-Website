@@ -360,8 +360,8 @@
     <div class="process-strip">
       <div class="ps-step active">User Need<span>Chronic friction of manual repositioning</span></div>
       <div class="ps-step active">Concept<span>Closed-loop face-tracking system</span></div>
-      <div class="ps-step active">Design<span>RRR vs RPR kinematic study in SolidWorks</span></div>
-      <div class="ps-step active">Prototype<span>Python pipeline + hardware PWM servos</span></div>
+      <div class="ps-step active">Design<span>RRR vs RPR kinematic study in Fusion 360 &amp; AutoCAD</span></div>
+      <div class="ps-step active">Prototype<span>Face detect &rarr; recognise &rarr; server &rarr; hardware PWM</span></div>
       <div class="ps-step">Validate<span>Ongoing &mdash; iterating to full build</span></div>
     </div>
 
@@ -370,14 +370,15 @@
       The friction is invisible but persistent &mdash; and entirely solvable with sensing and actuation.
     </p>
     <p class="proj-desc">
-      I designed a closed-loop mechatronic system: a webcam feeds frames into an OpenCV / MediaPipe face-detection
-      pipeline that computes pixel offset from frame centre, maps it to target joint angles via inverse kinematics,
-      and sends commands over a lightweight HTTP server to a microcontroller driving servo motors via hardware PWM.
-      The loop runs continuously &mdash; detect &rarr; compute &rarr; command &rarr; repeat.
+      I designed a closed-loop mechatronic system structured as a four-stage pipeline: a webcam feeds frames into an
+      <strong>OpenCV / MediaPipe face detection</strong> module, which locates the face; a <strong>face recognition</strong>
+      layer then confirms the tracked subject; the recognised position is mapped to target joint angles via inverse kinematics
+      and dispatched over a <strong>lightweight HTTP server</strong> to a Raspberry Pi 5 microcontroller driving servo motors
+      via <strong>hardware PWM</strong>. The loop runs continuously &mdash; detect &rarr; recognise &rarr; compute &rarr; command &rarr; repeat.
     </p>
     <p class="proj-desc">
       <strong>Design exploration:</strong> two joint configurations &mdash; RRR (three revolute joints) and RPR (revolute-prismatic-revolute) &mdash;
-      were modelled and compared in SolidWorks to evaluate workspace coverage, mechanical complexity, and load path.
+      were modelled and compared in <strong>Fusion 360 and AutoCAD</strong> to evaluate workspace coverage, mechanical complexity, and load path.
       Component assemblies (base, elbow, body, head) were iterated across multiple CAD versions.
     </p>
 
@@ -388,19 +389,20 @@
     </div>
 
     <div class="highlights">
-      <div class="hl-item">OpenCV + MediaPipe face detection &rarr; dead-band filtered servo commands via hardware PWM</div>
-      <div class="hl-item">Kinematic comparison: RRR vs RPR &mdash; workspace, singularity, and load analysis in SolidWorks</div>
+      <div class="hl-item">4-stage pipeline: face detection &rarr; face recognition &rarr; HTTP server &rarr; hardware PWM on Raspberry Pi 5</div>
+      <div class="hl-item">Kinematic comparison: RRR vs RPR &mdash; workspace, singularity, and load analysis in Fusion 360 &amp; AutoCAD</div>
       <div class="hl-item">Python HTTP server bridges laptop CV pipeline to embedded microcontroller</div>
       <div class="hl-item">Full parametric CAD assembly: base, body, elbow, head &mdash; iterated across multiple revisions</div>
     </div>
 
     <div class="pills">
       <span class="pill">Python</span><span class="pill">OpenCV</span><span class="pill">MediaPipe</span>
-      <span class="pill">Inverse Kinematics</span><span class="pill">Hardware PWM</span>
-      <span class="pill">SolidWorks</span><span class="pill">Embedded Systems</span><span class="pill">HTTP Server</span>
+      <span class="pill">Face Recognition</span><span class="pill">Inverse Kinematics</span><span class="pill">Hardware PWM</span>
+      <span class="pill">Fusion 360</span><span class="pill">AutoCAD</span><span class="pill">Raspberry Pi 5</span><span class="pill">HTTP Server</span>
     </div>
     <div class="proj-links">
       <a href="https://junbyungpark.com/project-monitor-arm.html">Full project page</a>
+      <a href="https://github.com/JBIS1104/Head-Tracking-Monitor-Arm_RP5">GitHub repo</a>
       <a href="https://youtube.com/shorts/Ff7low8DELI?feature=share">Watch demo video</a>
     </div>
   </div>

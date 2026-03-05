@@ -1,0 +1,180 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Robot Fighting League &mdash; Junbyung Park</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>body { font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif; }</style>
+  </head>
+  <body>
+
+    <nav class="nav">
+      <a class="nav-brand" href="index.html">JP</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="all-projects.html">Projects</a>
+        <a href="education.html">Education</a>
+        <a href="experience.html">Experience</a>
+        <a href="skills.html">Skills</a>
+      </div>
+      <a class="nav-cta" href="contact.html">Contact</a>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    </nav>
+
+    <div class="page-hero">
+      <div class="page-hero-inner">
+        <p class="eyebrow reveal">04 &mdash; UoM Robotics Society &middot; 2024&ndash;2025</p>
+        <h1 class="reveal" style="transition-delay:0.07s;">Robot Fighting<br />League.</h1>
+        <p class="lead reveal" style="max-width:560px; transition-delay:0.14s;">&ldquo;Space Ship&rdquo; &mdash; an Antweight combat robot engineered to wedge under opponents and flip them. Ultra-low CG, near-zero ground clearance, designed from scratch in AutoCAD.</p>
+        <div class="btn-row reveal" style="transition-delay:0.2s;">
+          <a class="btn btn-primary" href="https://youtu.be/Uo0IYKp0CUQ" target="_blank" rel="noopener">Watch match</a>
+          <a class="btn btn-ghost" href="all-projects.html">All projects</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHALLENGE -->
+    <section class="section-dark">
+      <div class="section-inner">
+        <div class="feature-split">
+          <div class="feature-text reveal">
+            <p class="eyebrow">The challenge</p>
+            <h2>Design a robot that wins by making the other one lose.</h2>
+            <p>Antweight class: maximum 150&nbsp;g. Arena: a flat combat box. Objective: immobilise opponents or push them out. Rules are tight; ingenuity is the differentiator.</p>
+            <p>My approach: if the robot is impossible to get underneath, and it can fit completely underneath its opponent &mdash; it wins. That became the design philosophy.</p>
+          </div>
+          <div class="feature-text reveal" style="transition-delay: 0.1s;">
+            <p class="eyebrow">Design philosophy</p>
+            <h2>Wedge wins.</h2>
+            <p>A perfectly flat wedge at near-zero ground clearance slides under opponents before they can react. A low centre of gravity means it&rsquo;s extremely hard to flip.</p>
+            <p>The robot needed to be mechanically reliable above all else &mdash; in combat, complexity is a failure point. &ldquo;Space Ship&rdquo; is deliberately simple: strong geometry, low profile, high torque.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MATCH VIDEO -->
+    <section class="section-mid">
+      <div class="section-inner">
+        <div class="section-header centered reveal">
+          <p class="eyebrow">In competition</p>
+          <h2>Match footage.</h2>
+        </div>
+        <div class="reveal" style="max-width: 800px; margin: 0 auto;">
+          <a href="https://youtu.be/Uo0IYKp0CUQ" target="_blank" rel="noopener"
+             class="vid-card" style="display: block; aspect-ratio: 16/9;">
+            <img src="https://img.youtube.com/vi/Uo0IYKp0CUQ/hqdefault.jpg" alt="RFL match footage"
+                 style="width:100%; height:100%; object-fit:cover;" />
+            <div class="vid-play">&#9654;</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAD GALLERY -->
+    <section class="section-dark">
+      <div class="section-inner-wide">
+        <div class="section-header centered reveal">
+          <p class="eyebrow">AutoCAD design</p>
+          <h2>Space Ship in CAD.</h2>
+        </div>
+        <div class="img-grid reveal-stagger">
+          <div class="img-tile">
+            <img src="Projects/RFL/Spaceship.png" alt="Space Ship CAD" />
+            <span class="img-label">Space Ship CAD design</span>
+          </div>
+          <div class="img-tile">
+            <img src="Projects/RFL/Pusher.png" alt="Pusher concept" />
+            <span class="img-label">Pusher concept</span>
+          </div>
+          <div class="img-tile">
+            <img src="Projects/RFL/With%20Brushed.png" alt="With brushed motor" />
+            <span class="img-label">With brushed motor setup</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENGINEERING BREAKDOWN -->
+    <section class="section-mid">
+      <div class="section-inner">
+        <div class="section-header centered reveal">
+          <p class="eyebrow">Engineering</p>
+          <h2>Design decisions.</h2>
+        </div>
+        <div class="timeline reveal-stagger">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <h3>Near-zero ground clearance</h3>
+              <p>The chassis underside is milled flat to within fractions of a millimetre. This prevents opponents from wedging underneath &mdash; one of the most common ways combat robots are flipped.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <h3>Ultra-low centre of gravity</h3>
+              <p>All heavy components (batteries, motors) are mounted as low and centrally as possible. This makes the robot resistant to toppling even under heavy side impact.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <h3>Wedge geometry</h3>
+              <p>The front face angles forward and downward, creating a ramp that guides under opponents and lifts them, reducing their traction and exposing vulnerable underside components.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <h3>AutoCAD from scratch</h3>
+              <p>The entire robot was designed in AutoCAD, iterating through geometry to balance the wedge angle, weight distribution, and motor placement within the 150&nbsp;g class limit.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pills-row reveal" style="justify-content: center; gap: 10px; margin-top: 48px;">
+          <span class="pill">AutoCAD</span>
+          <span class="pill">Combat Robotics</span>
+          <span class="pill">Antweight Class</span>
+          <span class="pill">Iterative Design</span>
+          <span class="pill">Weight Optimisation</span>
+          <span class="pill">Centre of Gravity Analysis</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE NAV -->
+    <section class="section-dark">
+      <div class="section-inner">
+        <div class="page-nav">
+          <a class="page-nav-item prev" href="project-line-buggy.html">
+            <span class="page-nav-dir">&#8592; Previous</span>
+            <span class="page-nav-title">Line-Following Buggy</span>
+          </a>
+          <a class="page-nav-item next" href="all-projects.html">
+            <span class="page-nav-dir">All Projects &#8594;</span>
+            <span class="page-nav-title">Full project list</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <p>&copy; 2026 Junbyung Park &middot; Mechatronics Engineer &middot; Manchester</p>
+        <div class="footer-links">
+          <a href="all-projects.html">Projects</a>
+          <a href="education.html">Education</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

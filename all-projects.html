@@ -1,0 +1,239 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects &mdash; Junbyung Park</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      body { font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif; }
+
+      .proj-list-item {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(40px, 6vw, 80px);
+        align-items: center;
+        padding: clamp(60px, 8vw, 100px) 0;
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+      }
+
+      .proj-list-item:last-child { border-bottom: none; }
+
+      .proj-list-item.flip { direction: rtl; }
+      .proj-list-item.flip > * { direction: ltr; }
+
+      .proj-list-text .proj-card-num {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent-l);
+        margin-bottom: 10px;
+      }
+
+      .proj-list-text h2 { margin-bottom: 14px; }
+
+      .proj-list-text p {
+        font-size: clamp(0.92rem, 1.4vw, 1.05rem);
+        color: var(--text-d2);
+        line-height: 1.7;
+        margin-bottom: 10px;
+      }
+
+      .proj-list-text .pills-row { margin: 18px 0 28px; }
+
+      .proj-list-media {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        aspect-ratio: 16/10;
+        background: var(--surface-d2);
+        position: relative;
+      }
+
+      .proj-list-media img {
+        width: 100%; height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s var(--ease);
+      }
+
+      .proj-list-media:hover img { transform: scale(1.04); }
+
+      .proj-list-media .vid-play {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      @media (max-width: 760px) {
+        .proj-list-item { grid-template-columns: 1fr; }
+        .proj-list-item.flip { direction: ltr; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <nav class="nav">
+      <a class="nav-brand" href="index.html">JP</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="all-projects.html">Projects</a>
+        <a href="education.html">Education</a>
+        <a href="experience.html">Experience</a>
+        <a href="skills.html">Skills</a>
+      </div>
+      <a class="nav-cta" href="contact.html">Contact</a>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    </nav>
+
+    <div class="page-hero">
+      <div class="page-hero-inner">
+        <p class="eyebrow reveal">Full project list</p>
+        <h1 class="reveal" style="transition-delay:0.07s;">Projects.</h1>
+        <p class="lead reveal" style="max-width:560px; transition-delay:0.14s;">Every project I&rsquo;ve built &mdash; from 3rd year robotics to hackathon AI systems, combat bots, and generative video.</p>
+      </div>
+    </div>
+
+    <main>
+      <div class="section-dark" style="padding-top: 0;">
+        <div class="section-inner">
+
+          <!-- 01 MONITOR ARM -->
+          <div class="proj-list-item reveal">
+            <div class="proj-list-text">
+              <p class="proj-card-num">01 &mdash; 3rd Year Project &middot; 2025&ndash;Current</p>
+              <h2>Head-Tracking<br />Monitor Arm</h2>
+              <p>A monitor arm that actively tracks the user&rsquo;s head position and adjusts itself in real time. Eliminates manual repositioning for desk use, smart TVs, and portable displays.</p>
+              <p>Full Python pipeline: OpenCV face detection &rarr; motor angle calculation &rarr; hardware PWM. RRR vs RPR joint configurations explored in SolidWorks.</p>
+              <div class="pills-row">
+                <span class="pill">Python</span>
+                <span class="pill">OpenCV</span>
+                <span class="pill">Hardware PWM</span>
+                <span class="pill">SolidWorks</span>
+                <span class="pill">HTTP Server</span>
+              </div>
+              <div class="btn-row">
+                <a class="btn btn-primary" href="project-monitor-arm.html">View project</a>
+                <a class="btn btn-ghost" href="https://youtube.com/shorts/Ff7low8DELI?feature=share" target="_blank" rel="noopener">Watch demo</a>
+              </div>
+            </div>
+            <a class="proj-list-media" href="project-monitor-arm.html">
+              <img src="https://img.youtube.com/vi/Ff7low8DELI/hqdefault.jpg" alt="Monitor Arm demo" />
+            </a>
+          </div>
+
+          <!-- 02 AI CAMERA -->
+          <div class="proj-list-item flip reveal">
+            <div class="proj-list-text">
+              <p class="proj-card-num">02 &mdash; Hackathon &middot; 2025 &middot; &#127942; 3rd Place</p>
+              <h2>AI Camera<br />System</h2>
+              <p>Personally conceptualised an automated classroom assistant for student attendance and attentiveness tracking in a single unified device. Led all detection pipeline programming in Python.</p>
+              <p>Won 3rd place at the University of Manchester Hackathon 2025, competing against teams from across the faculty.</p>
+              <div class="pills-row">
+                <span class="pill">Python</span>
+                <span class="pill">Computer Vision</span>
+                <span class="pill">AI</span>
+                <span class="pill">Prototyping</span>
+              </div>
+              <div class="btn-row">
+                <a class="btn btn-primary" href="https://github.com/JBIS1104/HACK-A-BOT2025" target="_blank" rel="noopener">GitHub repo</a>
+                <a class="btn btn-ghost" href="https://youtube.com/shorts/Sxucuh2GTYQ?feature=share" target="_blank" rel="noopener">Watch demo</a>
+              </div>
+            </div>
+            <a class="proj-list-media" href="https://youtube.com/shorts/Sxucuh2GTYQ?feature=share" target="_blank" rel="noopener">
+              <img src="https://img.youtube.com/vi/Sxucuh2GTYQ/hqdefault.jpg" alt="AI Camera demo" />
+              <div class="vid-play">&#9654;</div>
+            </a>
+          </div>
+
+          <!-- 03 LINE BUGGY -->
+          <div class="proj-list-item reveal">
+            <div class="proj-list-text">
+              <p class="proj-card-num">03 &mdash; Academic Project &middot; 2024&ndash;2025</p>
+              <h2>Line-Following<br />Buggy</h2>
+              <p>End-to-end contribution across hardware build, SolidWorks CAD, FEA structural validation, precision wiring &amp; soldering, and PID control coding in C/C++.</p>
+              <p>Also authored the full mechanical section of the project report covering design rationale and FEA validation.</p>
+              <div class="pills-row">
+                <span class="pill">SolidWorks</span>
+                <span class="pill">FEA</span>
+                <span class="pill">C/C++</span>
+                <span class="pill">PID Control</span>
+                <span class="pill">Wiring</span>
+              </div>
+              <div class="btn-row">
+                <a class="btn btn-primary" href="project-line-buggy.html">View project</a>
+                <a class="btn btn-ghost" href="https://youtube.com/shorts/d5s5E9G_Bbc?feature=share" target="_blank" rel="noopener">Watch run</a>
+              </div>
+            </div>
+            <a class="proj-list-media" href="project-line-buggy.html">
+              <img src="https://img.youtube.com/vi/d5s5E9G_Bbc/hqdefault.jpg" alt="Line buggy run" />
+            </a>
+          </div>
+
+          <!-- 04 RFL -->
+          <div class="proj-list-item flip reveal">
+            <div class="proj-list-text">
+              <p class="proj-card-num">04 &mdash; UoM Robotics Society &middot; 2024&ndash;2025</p>
+              <h2>Robot Fighting<br />League</h2>
+              <p>Designed and engineered &ldquo;Space Ship&rdquo; &mdash; an Antweight (150&nbsp;g) combat robot with ultra-low ground clearance and a wedge geometry built to flip opponents.</p>
+              <p>Chassis, powertrain packaging, and arena strategy all designed from scratch in AutoCAD. Space Ship successfully lifted opponents in competition.</p>
+              <div class="pills-row">
+                <span class="pill">AutoCAD</span>
+                <span class="pill">Combat Robotics</span>
+                <span class="pill">Antweight</span>
+                <span class="pill">Iterative Design</span>
+              </div>
+              <div class="btn-row">
+                <a class="btn btn-primary" href="project-rfl.html">View project</a>
+                <a class="btn btn-ghost" href="https://youtu.be/Uo0IYKp0CUQ" target="_blank" rel="noopener">Watch match</a>
+              </div>
+            </div>
+            <a class="proj-list-media" href="https://youtu.be/Uo0IYKp0CUQ" target="_blank" rel="noopener">
+              <img src="https://img.youtube.com/vi/Uo0IYKp0CUQ/hqdefault.jpg" alt="RFL match footage" />
+              <div class="vid-play">&#9654;</div>
+            </a>
+          </div>
+
+          <!-- 05 ETHICAL VIDEO -->
+          <div class="proj-list-item reveal">
+            <div class="proj-list-text">
+              <p class="proj-card-num">05 &mdash; Independent Project &middot; 2026</p>
+              <h2>Video Generation for<br />Ethically Aligned Design</h2>
+              <p>Explored how generative AI systems produce high-quality video and how that output can be deliberately shaped to align with clear ethical intent.</p>
+              <p>End-to-end workflow: structured prompts in Google AI Studio &rarr; Veo 3.1 generation &rarr; post-editing to refine and contextualise. Thoughtful prompt design as a form of creative authorship.</p>
+              <div class="pills-row">
+                <span class="pill">Google AI Studio</span>
+                <span class="pill">Veo 3.1</span>
+                <span class="pill">Prompt Engineering</span>
+                <span class="pill">Video Editing</span>
+              </div>
+              <div class="btn-row">
+                <a class="btn btn-primary" href="https://youtu.be/__6KSYva394?si=7sF_fx5RmIuq674p" target="_blank" rel="noopener">Watch video</a>
+              </div>
+            </div>
+            <a class="proj-list-media" href="https://youtu.be/__6KSYva394?si=7sF_fx5RmIuq674p" target="_blank" rel="noopener">
+              <img src="https://img.youtube.com/vi/__6KSYva394/hqdefault.jpg" alt="Ethical video project" />
+              <div class="vid-play">&#9654;</div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <p>&copy; 2026 Junbyung Park &middot; Mechatronics Engineer &middot; Manchester</p>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="skills.html">Skills</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

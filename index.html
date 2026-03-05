@@ -1,0 +1,287 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Junbyung Park &mdash; Mechatronics Engineer</title>
+    <meta name="description" content="Portfolio of Junbyung Park &mdash; Mechatronics Engineering student at the University of Manchester. AI developer, combat robot designer, F-35 maintenance veteran." />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style> body { font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif; } </style>
+  </head>
+  <body>
+
+    <!-- ── NAV ─────────────────────────────────── -->
+    <nav class="nav">
+      <a class="nav-brand" href="index.html">JP</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="all-projects.html">Projects</a>
+        <a href="education.html">Education</a>
+        <a href="experience.html">Experience</a>
+        <a href="skills.html">Skills</a>
+      </div>
+      <a class="nav-cta" href="contact.html">Contact</a>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    </nav>
+
+    <!-- ── HERO ────────────────────────────────── -->
+    <header class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Mechatronics Engineer &middot; University of Manchester</p>
+        <h1>I don&rsquo;t just build.<br /><span class="grad-text">I continuously improve</span><br />every system I touch.</h1>
+        <p class="lead">First Class BEng candidate combining military-grade discipline with outstanding technical creativity. F-35 maintenance veteran. Hackathon winner. Real-time AI builder.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="all-projects.html">View all projects</a>
+          <a class="btn btn-ghost" href="contact.html">Get in touch</a>
+        </div>
+
+        <div class="build-card reveal" style="margin-top: 60px;">
+          <p class="build-label">Currently building</p>
+          <h3>Head-Tracking Monitor Arm</h3>
+          <p>Engineering a multi-DOF robot arm for real-time head tracking. Python motor-control software over HTTP, using OpenCV and Hardware PWM to map facial position to precise servo motion.</p>
+          <div class="pills-row">
+            <span class="pill">Python</span>
+            <span class="pill">OpenCV</span>
+            <span class="pill">Hardware PWM</span>
+            <span class="pill">SolidWorks</span>
+            <span class="pill">Robotics</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ── STATS ────────────────────────────────── -->
+    <div class="section-mid">
+      <div class="section-inner">
+        <div class="stats-row reveal-stagger">
+          <div class="stat">
+            <div class="stat-num">1st</div>
+            <div class="stat-label">Predicted degree class &mdash; BEng Mechatronics</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">3rd</div>
+            <div class="stat-label">UoM Hackathon 2025 &mdash; AI Camera System</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">F-35</div>
+            <div class="stat-label">Facility maintenance &mdash; Korean Air Force</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── FEATURED PROJECT ─────────────────────── -->
+    <section class="section-dark">
+      <div class="section-inner">
+        <div class="feature-split">
+          <div class="feature-text reveal">
+            <p class="eyebrow">3rd Year Project &middot; 2025&ndash;Current</p>
+            <h2>Head-Tracking<br />Monitor Arm</h2>
+            <p>A multi-degree-of-freedom monitor arm that tracks the user&rsquo;s head position in real time and adjusts itself automatically &mdash; no manual intervention required.</p>
+            <p>Full Python pipeline: OpenCV face detection &rarr; motor angle calculation &rarr; hardware PWM servo output. Multiple joint configurations explored (RRR vs RPR) and fabricated in SolidWorks.</p>
+            <div class="btn-row feature-text-btns">
+              <a class="btn btn-primary" href="project-monitor-arm.html">View project</a>
+              <a class="btn btn-ghost" href="https://youtube.com/shorts/Ff7low8DELI?feature=share" target="_blank" rel="noopener">Watch demo</a>
+            </div>
+          </div>
+          <div class="feature-media reveal" style="transition-delay: 0.12s;">
+            <a href="https://youtube.com/shorts/Ff7low8DELI?feature=share" target="_blank" rel="noopener" class="vid-card" style="display:block; width:100%; height:100%;">
+              <img src="https://img.youtube.com/vi/Ff7low8DELI/hqdefault.jpg" alt="Head-Tracking Monitor Arm demo" style="width:100%;height:100%;object-fit:cover;" />
+              <div class="vid-play">&#9654;</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ALL PROJECTS PREVIEW ──────────────────── -->
+    <section class="section-mid">
+      <div class="section-inner-wide">
+        <div class="section-header reveal">
+          <p class="eyebrow">Portfolio</p>
+          <h2>Every project, <br />built from scratch.</h2>
+          <p class="lead">From combat robots to AI camera systems &mdash; a complete record of what I&rsquo;ve designed, built, and shipped.</p>
+        </div>
+
+        <div class="proj-grid reveal-stagger">
+
+          <a class="proj-card" href="project-monitor-arm.html">
+            <div class="proj-card-img">
+              <img src="https://img.youtube.com/vi/Ff7low8DELI/hqdefault.jpg" alt="Monitor Arm" />
+            </div>
+            <div class="proj-card-body">
+              <p class="proj-card-num">01 &middot; 3rd Year Project</p>
+              <h3>Head-Tracking Monitor Arm</h3>
+              <p>Real-time head tracking arm driven by Python, OpenCV, and hardware PWM. SolidWorks-designed multi-DOF structure.</p>
+              <div class="proj-card-footer">
+                <div class="proj-card-tags">
+                  <span class="pill">Python</span>
+                  <span class="pill">OpenCV</span>
+                  <span class="pill">SolidWorks</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="proj-card" href="https://github.com/JBIS1104/HACK-A-BOT2025" target="_blank" rel="noopener">
+            <span class="proj-card-badge">&#127942; 3rd Place</span>
+            <div class="proj-card-img">
+              <img src="https://img.youtube.com/vi/Sxucuh2GTYQ/hqdefault.jpg" alt="AI Camera" />
+            </div>
+            <div class="proj-card-body">
+              <p class="proj-card-num">02 &middot; Hackathon 2025</p>
+              <h3>AI Camera System</h3>
+              <p>Automated classroom assistant for attendance and attentiveness. Led all detection pipeline programming. Awarded 3rd place at UoM Hackathon.</p>
+              <div class="proj-card-footer">
+                <div class="proj-card-tags">
+                  <span class="pill">Python</span>
+                  <span class="pill">Computer Vision</span>
+                  <span class="pill">AI</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="proj-card" href="project-line-buggy.html">
+            <div class="proj-card-img">
+              <img src="https://img.youtube.com/vi/d5s5E9G_Bbc/hqdefault.jpg" alt="Line Buggy" />
+            </div>
+            <div class="proj-card-body">
+              <p class="proj-card-num">03 &middot; Academic Project</p>
+              <h3>Line-Following Buggy</h3>
+              <p>End-to-end contribution: SolidWorks CAD, FEA validation, hardware assembly, wiring, and PID control in C/C++.</p>
+              <div class="proj-card-footer">
+                <div class="proj-card-tags">
+                  <span class="pill">SolidWorks</span>
+                  <span class="pill">FEA</span>
+                  <span class="pill">C/C++</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="proj-card" href="project-rfl.html">
+            <div class="proj-card-img">
+              <img src="https://img.youtube.com/vi/Uo0IYKp0CUQ/hqdefault.jpg" alt="RFL" />
+            </div>
+            <div class="proj-card-body">
+              <p class="proj-card-num">04 &middot; Robotics Society</p>
+              <h3>Robot Fighting League</h3>
+              <p>&ldquo;Space Ship&rdquo; &mdash; an Antweight combat robot engineered to wedge under opponents and flip them. Ultra-low CG, near-zero ground clearance.</p>
+              <div class="proj-card-footer">
+                <div class="proj-card-tags">
+                  <span class="pill">AutoCAD</span>
+                  <span class="pill">Combat Robotics</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+        </div>
+
+        <div style="margin-top: 40px; text-align: center;" class="reveal">
+          <a class="btn btn-ghost" href="all-projects.html">View all projects &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ABOUT STRIP ───────────────────────────── -->
+    <section class="section-light">
+      <div class="section-inner">
+        <div class="feature-split reverse">
+          <div class="feature-text reveal">
+            <p class="eyebrow">Background</p>
+            <h2>Engineering meets discipline.</h2>
+            <p>Before university, I served in the Korean Air Force maintaining F-35 fighter jet facilities. That experience instilled a standard &mdash; 17% improvement in reliability outcomes, zero tolerance for imprecision, and the ability to perform under pressure.</p>
+            <p>At Manchester I channel that same standard into every project: CAD, simulation, AI pipelines, and hands-on hardware.</p>
+            <div class="btn-row feature-text-btns">
+              <a class="btn btn-ghost" href="experience.html">View experience</a>
+              <a class="btn btn-ghost" href="education.html">Education</a>
+            </div>
+          </div>
+          <div class="glance-grid reveal" style="margin-top: 0; transition-delay: 0.1s;">
+            <div class="glance-card" style="background: #e8e8ed;">
+              <span class="glance-icon">&#9889;</span>
+              <div class="glance-val" style="color: var(--accent);">+17%</div>
+              <div class="glance-label" style="color: var(--text-l2);">System reliability improvement, F-35 facilities</div>
+            </div>
+            <div class="glance-card" style="background: #e8e8ed;">
+              <span class="glance-icon">&#127942;</span>
+              <div class="glance-val" style="color: var(--accent);">3rd</div>
+              <div class="glance-label" style="color: var(--text-l2);">UoM Hackathon 2025</div>
+            </div>
+            <div class="glance-card" style="background: #e8e8ed;">
+              <span class="glance-icon">&#127891;</span>
+              <div class="glance-val" style="color: var(--accent);">1st</div>
+              <div class="glance-label" style="color: var(--text-l2);">Predicted degree class, BEng Mechatronics</div>
+            </div>
+            <div class="glance-card" style="background: #e8e8ed;">
+              <span class="glance-icon">&#9992;</span>
+              <div class="glance-val" style="color: var(--accent);">F-35</div>
+              <div class="glance-label" style="color: var(--text-l2);">Korean Air Force 17th Fighter Wing</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── NAVIGATE SECTION ──────────────────────── -->
+    <section class="section-dark">
+      <div class="section-inner">
+        <div class="section-header centered reveal">
+          <p class="eyebrow">Navigate</p>
+          <h2>Everything in one place.</h2>
+        </div>
+        <div class="home-grid reveal-stagger">
+          <a class="home-card" href="all-projects.html">
+            <span class="home-card-icon">&#9881;&#65039;</span>
+            <h3>Projects</h3>
+            <p>Head-tracking arm, AI camera system, combat robots, line-following buggy, and more.</p>
+            <span class="home-card-link">View all projects &#8594;</span>
+          </a>
+          <a class="home-card" href="education.html">
+            <span class="home-card-icon">&#127891;</span>
+            <h3>Education</h3>
+            <p>BEng Mechatronics (Predicted First Class) at the University of Manchester.</p>
+            <span class="home-card-link">View education &#8594;</span>
+          </a>
+          <a class="home-card" href="experience.html">
+            <span class="home-card-icon">&#9992;&#65039;</span>
+            <h3>Experience</h3>
+            <p>F-35 facility maintenance engineer, Korean Air Force 17th Fighter Wing.</p>
+            <span class="home-card-link">View experience &#8594;</span>
+          </a>
+          <a class="home-card" href="skills.html">
+            <span class="home-card-icon">&#128736;&#65039;</span>
+            <h3>Skills</h3>
+            <p>SolidWorks, Python, FEA, AutoCAD, C/C++, OpenCV, and more.</p>
+            <span class="home-card-link">View skills &#8594;</span>
+          </a>
+          <a class="home-card" href="contact.html">
+            <span class="home-card-icon">&#128172;</span>
+            <h3>Contact</h3>
+            <p>Open to project collaborations, research, and graduate opportunities.</p>
+            <span class="home-card-link">Get in touch &#8594;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ────────────────────────────────── -->
+    <footer>
+      <div class="footer-inner">
+        <p>&copy; 2026 Junbyung Park &middot; Mechatronics Engineer &middot; Manchester</p>
+        <div class="footer-links">
+          <a href="all-projects.html">Projects</a>
+          <a href="education.html">Education</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

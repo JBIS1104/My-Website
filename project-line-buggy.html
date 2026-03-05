@@ -1,0 +1,182 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Line-Following Buggy &mdash; Junbyung Park</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>body { font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif; }</style>
+  </head>
+  <body>
+
+    <nav class="nav">
+      <a class="nav-brand" href="index.html">JP</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="all-projects.html">Projects</a>
+        <a href="education.html">Education</a>
+        <a href="experience.html">Experience</a>
+        <a href="skills.html">Skills</a>
+      </div>
+      <a class="nav-cta" href="contact.html">Contact</a>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    </nav>
+
+    <div class="page-hero">
+      <div class="page-hero-inner">
+        <p class="eyebrow reveal">03 &mdash; Academic Project &middot; 2024&ndash;2025</p>
+        <h1 class="reveal" style="transition-delay:0.07s;">Line-Following<br />Buggy.</h1>
+        <p class="lead reveal" style="max-width:560px; transition-delay:0.14s;">End-to-end contribution across CAD, FEA, hardware build, wiring, and software &mdash; with the full mechanical section of the project report authored by me.</p>
+        <div class="btn-row reveal" style="transition-delay:0.2s;">
+          <a class="btn btn-primary" href="https://youtube.com/shorts/d5s5E9G_Bbc?feature=share" target="_blank" rel="noopener">Watch test run</a>
+          <a class="btn btn-ghost" href="all-projects.html">All projects</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTRIBUTIONS -->
+    <section class="section-dark">
+      <div class="section-inner">
+        <div class="section-header centered reveal">
+          <p class="eyebrow">Contributions</p>
+          <h2>What I built.</h2>
+          <p class="lead">This was a team project. Here&rsquo;s what I personally delivered.</p>
+        </div>
+        <div class="home-grid reveal-stagger">
+          <div class="home-card">
+            <span class="home-card-icon">&#128736;&#65039;</span>
+            <h3>Hardware Build</h3>
+            <p>Physically assembled the buggy chassis, drivetrain, and sensor mounts. Ensured structural rigidity and component alignment.</p>
+          </div>
+          <div class="home-card">
+            <span class="home-card-icon">&#128187;</span>
+            <h3>SolidWorks CAD</h3>
+            <p>Produced full parametric 3D models of chassis components and subassemblies. Designed for manufacturability and correct tolerancing.</p>
+          </div>
+          <div class="home-card">
+            <span class="home-card-icon">&#128200;</span>
+            <h3>FEA Validation</h3>
+            <p>Ran Finite Element Analysis on critical structural members. Iterated geometry to bring peak stress below material limits with acceptable safety factors.</p>
+          </div>
+          <div class="home-card">
+            <span class="home-card-icon">&#9889;</span>
+            <h3>Wiring &amp; Soldering</h3>
+            <p>Designed and executed all electrical connections: motor drivers, IR sensors, power distribution, and microcontroller interface. Tight, reliable harness.</p>
+          </div>
+          <div class="home-card">
+            <span class="home-card-icon">&#128444;&#65039;</span>
+            <h3>PID Coding</h3>
+            <p>Implemented a PID control loop in C/C++ for line-following behaviour. Tuned gains experimentally for reliable tracking across straight sections and curves.</p>
+          </div>
+          <div class="home-card">
+            <span class="home-card-icon">&#128196;</span>
+            <h3>Project Report</h3>
+            <p>Authored the complete mechanical section of the final report, covering design rationale, material selection, FEA methodology, and validation outcomes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section-mid">
+      <div class="section-inner-wide">
+        <div class="section-header centered reveal">
+          <p class="eyebrow">Photo gallery</p>
+          <h2>Built &amp; tested.</h2>
+        </div>
+        <div class="img-grid reveal-stagger">
+          <div class="img-tile">
+            <img src="Projects/Line%20following%20Buggy/New%20Chassis.jpg" alt="New chassis" />
+            <span class="img-label">New chassis</span>
+          </div>
+          <div class="img-tile">
+            <img src="Projects/Line%20following%20Buggy/45degree%20down%20view%20buggy.png" alt="45 degree down view" />
+            <span class="img-label">45&deg; down view</span>
+          </div>
+          <div class="img-tile">
+            <img src="Projects/Line%20following%20Buggy/Buggy%20Design%20Diagram.png" alt="Design diagram" />
+            <span class="img-label">Design diagram</span>
+          </div>
+          <div class="img-tile">
+            <img src="Projects/Line%20following%20Buggy/Buggy%20FEA.png" alt="FEA results" />
+            <span class="img-label">FEA stress distribution</span>
+          </div>
+          <div class="img-tile">
+            <img src="Projects/Line%20following%20Buggy/wiring.png" alt="Wiring" />
+            <span class="img-label">Wiring &amp; soldering</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEST RUN VIDEO -->
+    <section class="section-dark">
+      <div class="section-inner">
+        <div class="section-header centered reveal">
+          <p class="eyebrow">Test run</p>
+          <h2>In action.</h2>
+        </div>
+        <div class="reveal" style="max-width: 520px; margin: 0 auto;">
+          <a href="https://youtube.com/shorts/d5s5E9G_Bbc?feature=share" target="_blank" rel="noopener"
+             class="vid-card" style="aspect-ratio: 9/16; display: block;">
+            <img src="https://img.youtube.com/vi/d5s5E9G_Bbc/hqdefault.jpg" alt="Buggy test run video"
+                 style="width:100%; height:100%; object-fit:cover;" />
+            <div class="vid-play">&#9654;</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTCOME -->
+    <section class="section-mid">
+      <div class="section-inner">
+        <div class="section-header centered reveal">
+          <p class="eyebrow">Outcome</p>
+          <h2>Results.</h2>
+          <p class="lead">The buggy successfully completed the full test course. The mechanical design withstood all dynamic loads without deformation. PID loop tracked the line reliably across straight sections and moderate-radius curves.</p>
+        </div>
+        <div class="pills-row reveal" style="justify-content: center; gap: 10px; margin-top: 32px;">
+          <span class="pill">SolidWorks</span>
+          <span class="pill">FEA</span>
+          <span class="pill">C/C++</span>
+          <span class="pill">PID Control</span>
+          <span class="pill">Circuit Design</span>
+          <span class="pill">Soldering</span>
+          <span class="pill">Technical Writing</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE NAV -->
+    <section class="section-dark">
+      <div class="section-inner">
+        <div class="page-nav">
+          <a class="page-nav-item prev" href="project-monitor-arm.html">
+            <span class="page-nav-dir">&#8592; Previous</span>
+            <span class="page-nav-title">Head-Tracking Monitor Arm</span>
+          </a>
+          <a class="page-nav-item next" href="project-rfl.html">
+            <span class="page-nav-dir">Next &#8594;</span>
+            <span class="page-nav-title">Robot Fighting League</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <p>&copy; 2026 Junbyung Park &middot; Mechatronics Engineer &middot; Manchester</p>
+        <div class="footer-links">
+          <a href="all-projects.html">Projects</a>
+          <a href="education.html">Education</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

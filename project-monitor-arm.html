@@ -1,0 +1,224 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Head-Tracking Monitor Arm &mdash; Junbyung Park</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>body { font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif; }</style>
+  </head>
+  <body>
+
+    <nav class="nav">
+      <a class="nav-brand" href="index.html">JP</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="all-projects.html">Projects</a>
+        <a href="education.html">Education</a>
+        <a href="experience.html">Experience</a>
+        <a href="skills.html">Skills</a>
+      </div>
+      <a class="nav-cta" href="contact.html">Contact</a>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    </nav>
+
+    <div class="page-hero">
+      <div class="page-hero-inner">
+        <p class="eyebrow reveal">01 &mdash; 3rd Year Project &middot; 2025&ndash;Current</p>
+        <h1 class="reveal" style="transition-delay:0.07s;">Head-Tracking<br />Monitor Arm.</h1>
+        <p class="lead reveal" style="max-width:580px; transition-delay:0.14s;">A multi-degree-of-freedom monitor arm that adjusts itself in real time to follow the user&rsquo;s head &mdash; no manual repositioning ever needed.</p>
+        <div class="btn-row reveal" style="transition-delay:0.2s;">
+          <a class="btn btn-primary" href="https://youtube.com/shorts/Ff7low8DELI?feature=share" target="_blank" rel="noopener">Watch demo</a>
+          <a class="btn btn-ghost" href="all-projects.html">All projects</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEMO VIDEO -->
+    <section class="section-mid">
+      <div class="section-inner">
+        <div class="reveal" style="text-align: center;">
+          <a href="https://youtube.com/shorts/Ff7low8DELI?feature=share" target="_blank" rel="noopener"
+             class="vid-card" style="max-width: 520px; margin: 0 auto; display: block; aspect-ratio: 9/16;">
+            <img src="https://img.youtube.com/vi/Ff7low8DELI/hqdefault.jpg" alt="Monitor Arm demo video"
+                 style="width:100%; height:100%; object-fit:cover;" />
+            <div class="vid-play">&#9654;</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- OVERVIEW -->
+    <section class="section-dark">
+      <div class="section-inner">
+        <div class="feature-split">
+          <div class="feature-text reveal">
+            <p class="eyebrow">Overview</p>
+            <h2>Why it exists.</h2>
+            <p>Conventional monitor arms require manual adjustment every time a user changes posture or repositions themselves. This project removes that friction entirely.</p>
+            <p>The arm identifies the user&rsquo;s face via a webcam, computes the required joint angles, and drives servo motors in real time &mdash; keeping the monitor centred on the user&rsquo;s face at all times.</p>
+            <p>Target applications include desk productivity, smart TVs, portable displays for accessibility, and collaborative workspace screens.</p>
+          </div>
+          <div class="feature-text reveal" style="transition-delay: 0.1s;">
+            <p class="eyebrow">At a glance</p>
+            <div class="glance-grid" style="margin-top: 0;">
+              <div class="glance-card">
+                <span class="glance-icon">&#129302;</span>
+                <div class="glance-val">Multi-DOF</div>
+                <div class="glance-label">RRR &amp; RPR joint configurations explored</div>
+              </div>
+              <div class="glance-card">
+                <span class="glance-icon">&#9889;</span>
+                <div class="glance-val">Real-time</div>
+                <div class="glance-label">Live face detection via OpenCV</div>
+              </div>
+              <div class="glance-card">
+                <span class="glance-icon">&#128736;&#65039;</span>
+                <div class="glance-val">Python</div>
+                <div class="glance-label">HTTP server &rarr; hardware PWM servo control</div>
+              </div>
+              <div class="glance-card">
+                <span class="glance-icon">&#128187;</span>
+                <div class="glance-val">SolidWorks</div>
+                <div class="glance-label">Full mechanical system CAD-designed from scratch</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section-mid">
+      <div class="section-inner">
+        <div class="section-header centered reveal">
+          <p class="eyebrow">Software pipeline</p>
+          <h2>From face to servo.</h2>
+          <p class="lead">The system runs a continuous closed-loop pipeline: detect &rarr; compute &rarr; command &rarr; repeat.</p>
+        </div>
+        <div class="timeline reveal-stagger">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <h3>1. Face Detection</h3>
+              <p>OpenCV MediaPipe detects the user&rsquo;s face in each webcam frame, returning bounding-box coordinates; the centroid is extracted for the next stage.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <h3>2. Angle Calculation</h3>
+              <p>Pixel offset from frame centre is mapped to desired joint angles via inverse kinematics. Dead-band filtering prevents jitter on small movements.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <h3>3. HTTP Command</h3>
+              <p>Target angles are serialised and posted to a lightweight Python HTTP server running on the microcontroller over the local network.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <h3>4. Hardware PWM</h3>
+              <p>The server decodes the angles, generates hardware-accurate PWM signals, and drives the servo motors to the commanded positions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAD GALLERY -->
+    <section class="section-dark">
+      <div class="section-inner-wide">
+        <div class="section-header centered reveal">
+          <p class="eyebrow">Mechanical design</p>
+          <h2>Built in SolidWorks.</h2>
+        </div>
+        <div class="img-grid reveal-stagger">
+          <div class="img-tile">
+            <img src="Projects/Monitor%20Arm/Arm%20Schematic.png" alt="Arm schematic" />
+            <span class="img-label">Arm schematic</span>
+          </div>
+          <div class="img-tile">
+            <img src="Projects/Monitor%20Arm/RRR%20and%20RPR.png" alt="RRR and RPR configurations" />
+            <span class="img-label">RRR &amp; RPR configurations</span>
+          </div>
+          <div class="img-tile">
+            <img src="Projects/Monitor%20Arm/body%20split.png" alt="Body split" />
+            <span class="img-label">Body split detail</span>
+          </div>
+          <div class="img-tile">
+            <img src="Projects/Monitor%20Arm/Elbow%20split.png" alt="Elbow split" />
+            <span class="img-label">Elbow split detail</span>
+          </div>
+          <div class="img-tile">
+            <img src="Projects/Monitor%20Arm/Base.png" alt="Base CAD" />
+            <span class="img-label">Base component</span>
+          </div>
+          <div class="img-tile">
+            <img src="Projects/Monitor%20Arm/Base%20Bottom.png" alt="Base bottom" />
+            <span class="img-label">Base bottom</span>
+          </div>
+          <div class="img-tile">
+            <img src="Projects/Monitor%20Arm/Head.png" alt="Head component" />
+            <span class="img-label">Head component</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECH STACK -->
+    <section class="section-mid">
+      <div class="section-inner">
+        <div class="section-header centered reveal">
+          <p class="eyebrow">Tech stack</p>
+          <h2>Tools &amp; technologies.</h2>
+        </div>
+        <div class="pills-row reveal" style="justify-content: center; gap: 10px;">
+          <span class="pill">Python</span>
+          <span class="pill">OpenCV</span>
+          <span class="pill">MediaPipe</span>
+          <span class="pill">Hardware PWM</span>
+          <span class="pill">HTTP Server</span>
+          <span class="pill">SolidWorks</span>
+          <span class="pill">Servo Kinematics</span>
+          <span class="pill">Raspberry Pi / Microcontroller</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE NAV -->
+    <section class="section-dark">
+      <div class="section-inner">
+        <div class="page-nav">
+          <a class="page-nav-item prev" href="all-projects.html">
+            <span class="page-nav-dir">&#8592; Back</span>
+            <span class="page-nav-title">All Projects</span>
+          </a>
+          <a class="page-nav-item next" href="project-line-buggy.html">
+            <span class="page-nav-dir">Next &#8594;</span>
+            <span class="page-nav-title">Line-Following Buggy</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <p>&copy; 2026 Junbyung Park &middot; Mechatronics Engineer &middot; Manchester</p>
+        <div class="footer-links">
+          <a href="all-projects.html">Projects</a>
+          <a href="education.html">Education</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

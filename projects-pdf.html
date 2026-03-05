@@ -1,0 +1,636 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Portfolio — Junbyung Park — Imperial MSc Design Engineering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent:   #0071e3;
+      --ink:      #1d1d1f;
+      --ink2:     #3d3d3f;
+      --ink3:     #6e6e73;
+      --rule:     #d2d2d7;
+      --rule-l:   #e8e8ed;
+      --pill-bg:  #e8e8ed;
+      --cover-bg: #0a0a0a;
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fff;
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── SCREEN-ONLY BAR ─── */
+    .screen-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 48px;
+      border-bottom: 1px solid var(--rule);
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .screen-bar a { font-size: 0.88rem; font-weight: 600; color: var(--ink2); text-decoration: none; }
+    .screen-bar a:hover { color: var(--accent); }
+    .print-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: #fff; border: none;
+      border-radius: 980px; padding: 9px 22px;
+      font-family: inherit; font-size: 0.86rem; font-weight: 600; cursor: pointer;
+    }
+    .print-btn:hover { background: #0077ed; }
+
+    /* ─── COVER PAGE ─── */
+    .cover {
+      background: var(--cover-bg);
+      color: #fff;
+      padding: 72px 64px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(0,113,227,0.35) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cover-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 56px;
+    }
+    .cover-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 6px;
+    }
+    .cover-app-for {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.5;
+    }
+    .cover-app-for strong {
+      display: block;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .cover-badge {
+      background: rgba(0,113,227,0.22);
+      border: 1px solid rgba(0,113,227,0.5);
+      color: #60a5fa;
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .cover-badge span {
+      display: block;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.02em;
+      margin-top: 2px;
+    }
+    .cover-name {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+    .cover-name em { font-style: normal; color: #60a5fa; }
+    .cover-tagline {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      max-width: 580px;
+      margin-bottom: 40px;
+    }
+    .cover-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+    .cover-stat { padding: 16px 20px; background: rgba(255,255,255,0.04); }
+    .cover-stat-val { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 3px; }
+    .cover-stat-label { font-size: 0.72rem; color: rgba(255,255,255,0.45); font-weight: 500; }
+    .cover-contact { display: flex; gap: 28px; flex-wrap: wrap; }
+    .cover-contact a {
+      font-size: 0.8rem; font-weight: 600;
+      color: rgba(255,255,255,0.55); text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 1px;
+    }
+    .cover-contact a:hover { color: #fff; }
+
+    /* ─── INTRO STATEMENT ─── */
+    .intro-block {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 64px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .intro-label {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 14px;
+    }
+    .intro-text { font-size: 1.05rem; color: var(--ink2); line-height: 1.75; }
+    .intro-text strong { color: var(--ink); font-weight: 600; }
+
+    /* ─── PAGE BODY ─── */
+    .page { max-width: 900px; margin: 0 auto; padding: 0 64px 72px; }
+
+    /* ─── SECTION DIVIDER ─── */
+    .section-label {
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink3); padding: 28px 0 20px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* ─── PROJECT ENTRY ─── */
+    .project { padding: 36px 0 32px; border-bottom: 1px solid var(--rule-l); }
+    .project:last-child { border-bottom: none; }
+
+    .proj-header {
+      display: flex; justify-content: space-between;
+      align-items: baseline; margin-bottom: 4px; gap: 16px;
+    }
+    .proj-num {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); white-space: nowrap;
+    }
+    .proj-meta {
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.05em; color: var(--ink3); text-align: right; white-space: nowrap;
+    }
+    .proj-title {
+      font-size: 1.35rem; font-weight: 700;
+      letter-spacing: -0.022em; line-height: 1.2;
+      margin-bottom: 14px; color: var(--ink);
+    }
+
+    /* Design process strip */
+    .process-strip {
+      display: flex; gap: 0; margin-bottom: 18px;
+      border-radius: 8px; overflow: hidden; border: 1px solid var(--rule);
+    }
+    .ps-step {
+      flex: 1; padding: 7px 10px;
+      font-size: 0.67rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      text-align: center; background: #fafafa; color: var(--ink3);
+      border-right: 1px solid var(--rule); line-height: 1.3;
+    }
+    .ps-step:last-child { border-right: none; }
+    .ps-step span {
+      display: block; font-size: 0.62rem; font-weight: 500;
+      text-transform: none; letter-spacing: 0;
+      color: var(--ink3); margin-top: 2px; opacity: 0.75;
+    }
+    .ps-step.active { background: var(--ink); color: #fff; }
+    .ps-step.active span { color: rgba(255,255,255,0.65); }
+
+    .proj-desc { font-size: 0.88rem; color: var(--ink2); line-height: 1.72; margin-bottom: 7px; }
+    .proj-desc strong { color: var(--ink); font-weight: 600; }
+
+    .highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 7px 20px; margin: 14px 0; }
+    .hl-item {
+      font-size: 0.8rem; color: var(--ink2); line-height: 1.5;
+      padding-left: 10px; border-left: 2px solid var(--accent);
+    }
+
+    .insight {
+      background: #f5f8ff; border: 1px solid #d0e4ff;
+      border-radius: 8px; padding: 11px 15px;
+      font-size: 0.81rem; color: #1e40af; line-height: 1.55; margin: 14px 0;
+    }
+    .insight strong { font-weight: 700; color: #1e3a8a; }
+
+    .pills { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 13px; }
+    .pill {
+      background: var(--pill-bg); color: var(--ink2);
+      border-radius: 980px; padding: 3px 10px;
+      font-size: 0.71rem; font-weight: 600;
+    }
+
+    .proj-links { margin-top: 12px; display: flex; gap: 20px; flex-wrap: wrap; }
+    .proj-links a { font-size: 0.78rem; font-weight: 600; color: var(--accent); text-decoration: none; }
+    .proj-links a::after { content: " \2192"; }
+
+    /* ─── FOOTER ─── */
+    .doc-footer {
+      max-width: 900px; margin: 0 auto;
+      padding: 20px 64px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.73rem; color: var(--ink3); border-top: 1px solid var(--rule);
+    }
+    .doc-footer a { color: var(--ink3); text-decoration: none; }
+    .doc-footer a:hover { color: var(--accent); }
+
+    /* ─── PRINT ─── */
+    @media print {
+      @page { size: A4 portrait; margin: 12mm 14mm 12mm; }
+      .screen-bar { display: none !important; }
+      body { background: #fff; }
+      .cover { padding: 40px 40px 30px; }
+      .cover::before { display: none; }
+      .intro-block { padding: 28px 40px; }
+      .page { padding: 0 40px 40px; }
+      .doc-footer { padding: 14px 40px 24px; }
+      .project { break-inside: avoid; }
+      .proj-links a { color: var(--accent) !important; }
+      .cover-contact a { color: rgba(255,255,255,0.65) !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Screen bar ── -->
+<div class="screen-bar">
+  <a href="index.html">&larr; Back to portfolio</a>
+  <button class="print-btn" onclick="window.print()">&#x2913;&nbsp; Save as PDF</button>
+</div>
+
+
+<!-- ══════════ COVER ══════════ -->
+<div class="cover">
+  <div class="cover-top">
+    <div>
+      <p class="cover-label">Portfolio submission for</p>
+      <p class="cover-app-for">
+        <strong>MSc Design Engineering &mdash; Imperial College London</strong>
+        Dyson School of Design Engineering &middot; September 2026 Entry
+      </p>
+    </div>
+    <div class="cover-badge">
+      Predicted Grade<span>First Class</span>
+    </div>
+  </div>
+
+  <h1 class="cover-name">Junbyung <em>Park</em></h1>
+  <p class="cover-tagline">
+    Mechatronics engineer with hands-on experience across the full design cycle &mdash;
+    from identifying unmet user needs, through CAD, simulation, and embedded software,
+    to physical prototypes tested in the real world.
+  </p>
+
+  <div class="cover-grid">
+    <div class="cover-stat">
+      <div class="cover-stat-val">BEng Mechatronics</div>
+      <div class="cover-stat-label">University of Manchester &middot; 2022&ndash;2026</div>
+    </div>
+    <div class="cover-stat">
+      <div class="cover-stat-val">5 Projects</div>
+      <div class="cover-stat-label">Hardware &middot; Software &middot; AI &middot; Robotics</div>
+    </div>
+    <div class="cover-stat">
+      <div class="cover-stat-val">A*A*A*A</div>
+      <div class="cover-stat-label">A-Levels &middot; Physics, Chemistry, FM, Maths</div>
+    </div>
+    <div class="cover-stat">
+      <div class="cover-stat-val">2+ Years</div>
+      <div class="cover-stat-label">F-35 Maintenance Engineer &middot; 17th Fighter Wing</div>
+    </div>
+  </div>
+
+  <div class="cover-contact">
+    <a href="https://junbyungpark.com">junbyungpark.com</a>
+    <a href="https://github.com/JBIS1104">github.com/JBIS1104</a>
+    <a href="https://linkedin.com/in/junbyungpark">linkedin.com/in/junbyungpark</a>
+  </div>
+</div>
+
+
+<!-- ── Intro statement ── -->
+<div class="intro-block">
+  <p class="intro-label">Design philosophy</p>
+  <p class="intro-text">
+    I approach engineering as a <strong>user-centred, systems-level discipline</strong>. Each project
+    in this portfolio began with a clearly identified unmet need, progressed through structured ideation
+    and iterative prototyping, and was validated against real-world constraints. My work spans
+    <strong>mechatronics, sensing, computer vision, embedded software, and mechanical design</strong> &mdash;
+    the exact intersection of disciplines that the MSc Design Engineering at the Dyson School develops.
+    I am drawn to Imperial&rsquo;s emphasis on <strong>creative problem-solving, systems thinking, and
+    industry-relevant project-based learning</strong>, and I intend to bring a field-proven instinct
+    for reliability and permanence to that environment.
+  </p>
+</div>
+
+
+<!-- ══════════ PROJECTS ══════════ -->
+<div class="page">
+
+  <p class="section-label">Projects &mdash; 5 projects as requested by the Dyson School</p>
+
+  <!-- ── 01 MONITOR ARM ── -->
+  <div class="project">
+    <div class="proj-header">
+      <span class="proj-num">01 &mdash; Head-Tracking Monitor Arm</span>
+      <span class="proj-meta">3rd Year Project &middot; 2025 &ndash; Current</span>
+    </div>
+    <h2 class="proj-title">A servo-driven monitor arm that follows the user&rsquo;s head in real time &mdash; no manual adjustment ever needed.</h2>
+
+    <div class="process-strip">
+      <div class="ps-step active">User Need<span>Chronic friction of manual repositioning</span></div>
+      <div class="ps-step active">Concept<span>Closed-loop face-tracking system</span></div>
+      <div class="ps-step active">Design<span>RRR vs RPR kinematic study in SolidWorks</span></div>
+      <div class="ps-step active">Prototype<span>Python pipeline + hardware PWM servos</span></div>
+      <div class="ps-step">Validate<span>Ongoing &mdash; iterating to full build</span></div>
+    </div>
+
+    <p class="proj-desc">
+      <strong>Problem identified:</strong> conventional monitor arms require constant manual adjustment as users shift posture.
+      The friction is invisible but persistent &mdash; and entirely solvable with sensing and actuation.
+    </p>
+    <p class="proj-desc">
+      I designed a closed-loop mechatronic system: a webcam feeds frames into an OpenCV / MediaPipe face-detection
+      pipeline that computes pixel offset from frame centre, maps it to target joint angles via inverse kinematics,
+      and sends commands over a lightweight HTTP server to a microcontroller driving servo motors via hardware PWM.
+      The loop runs continuously &mdash; detect &rarr; compute &rarr; command &rarr; repeat.
+    </p>
+    <p class="proj-desc">
+      <strong>Design exploration:</strong> two joint configurations &mdash; RRR (three revolute joints) and RPR (revolute-prismatic-revolute) &mdash;
+      were modelled and compared in SolidWorks to evaluate workspace coverage, mechanical complexity, and load path.
+      Component assemblies (base, elbow, body, head) were iterated across multiple CAD versions.
+    </p>
+
+    <div class="insight">
+      <strong>Design Engineering relevance:</strong> This project exemplifies the systems integration challenge at the heart of mechatronics &mdash;
+      hardware sensing, real-time software control, and mechanical structure must be co-designed. Every design decision
+      traced back to eliminating a clearly defined user friction point.
+    </div>
+
+    <div class="highlights">
+      <div class="hl-item">OpenCV + MediaPipe face detection &rarr; dead-band filtered servo commands via hardware PWM</div>
+      <div class="hl-item">Kinematic comparison: RRR vs RPR &mdash; workspace, singularity, and load analysis in SolidWorks</div>
+      <div class="hl-item">Python HTTP server bridges laptop CV pipeline to embedded microcontroller</div>
+      <div class="hl-item">Full parametric CAD assembly: base, body, elbow, head &mdash; iterated across multiple revisions</div>
+    </div>
+
+    <div class="pills">
+      <span class="pill">Python</span><span class="pill">OpenCV</span><span class="pill">MediaPipe</span>
+      <span class="pill">Inverse Kinematics</span><span class="pill">Hardware PWM</span>
+      <span class="pill">SolidWorks</span><span class="pill">Embedded Systems</span><span class="pill">HTTP Server</span>
+    </div>
+    <div class="proj-links">
+      <a href="https://junbyungpark.com/project-monitor-arm.html">Full project page</a>
+      <a href="https://youtube.com/shorts/Ff7low8DELI?feature=share">Watch demo video</a>
+    </div>
+  </div>
+
+
+  <!-- ── 02 AI CAMERA ── -->
+  <div class="project">
+    <div class="proj-header">
+      <span class="proj-num">02 &mdash; AI Camera System</span>
+      <span class="proj-meta">Hackathon &middot; 2025 &middot; &#127942; 3rd Place, UoM</span>
+    </div>
+    <h2 class="proj-title">A unified AI classroom assistant automating attendance and attentiveness tracking &mdash; conceptualised and coded under 24 hours, 3rd place.</h2>
+
+    <div class="process-strip">
+      <div class="ps-step active">User Need<span>Two separate manual classroom admin tasks</span></div>
+      <div class="ps-step active">Concept<span>Single device, unified AI pipeline</span></div>
+      <div class="ps-step active">Prototype<span>Face detection + gaze/posture in Python</span></div>
+      <div class="ps-step active">Validate<span>3rd place, multi-faculty competition</span></div>
+      <div class="ps-step">Scale<span>Hardware integration scope identified</span></div>
+    </div>
+
+    <p class="proj-desc">
+      <strong>Problem identified:</strong> classroom attendance and attentiveness monitoring are handled separately,
+      manually, and inconsistently. Both are solvable with a single sensing device and a unified AI pipeline.
+    </p>
+    <p class="proj-desc">
+      I personally conceptualised the product direction &mdash; merging two typically distinct tools into one coherent device &mdash;
+      and led all Python detection pipeline development. The system identifies registered faces for attendance and analyses
+      head orientation and posture for attentiveness scoring. The team placed 3rd at the University of Manchester
+      Hackathon 2025 competing across faculties.
+    </p>
+
+    <div class="insight">
+      <strong>Design Engineering relevance:</strong> Demonstrates rapid user-need identification, creative reframing
+      (two tools &rarr; one), and fast prototyping under hard time constraints &mdash; core skills in design-led innovation
+      and entrepreneurship, which are central to the Dyson School&rsquo;s ethos.
+    </div>
+
+    <div class="highlights">
+      <div class="hl-item">Original product concept: merged two standalone tools into one unified sensing device</div>
+      <div class="hl-item">Face recognition pipeline for automated roll-call without manual input</div>
+      <div class="hl-item">Attentiveness inference from head tracking and posture estimation</div>
+      <div class="hl-item">Cross-faculty competition placement validates concept under independent peer evaluation</div>
+    </div>
+
+    <div class="pills">
+      <span class="pill">Python</span><span class="pill">Computer Vision</span>
+      <span class="pill">Face Recognition</span><span class="pill">Gaze Estimation</span>
+      <span class="pill">Rapid Prototyping</span><span class="pill">IoT Sensing</span><span class="pill">Product Concept</span>
+    </div>
+    <div class="proj-links">
+      <a href="https://github.com/JBIS1104/HACK-A-BOT2025">GitHub repo</a>
+      <a href="https://youtube.com/shorts/Sxucuh2GTYQ?feature=share">Watch demo video</a>
+    </div>
+  </div>
+
+
+  <!-- ── 03 LINE BUGGY ── -->
+  <div class="project">
+    <div class="proj-header">
+      <span class="proj-num">03 &mdash; Line-Following Buggy</span>
+      <span class="proj-meta">Academic Project &middot; 2024 &ndash; 2025</span>
+    </div>
+    <h2 class="proj-title">End-to-end mechatronics design &mdash; CAD, FEA, hardware build, soldering, and PID control &mdash; with the full mechanical report authored personally.</h2>
+
+    <div class="process-strip">
+      <div class="ps-step active">Requirements<span>Speed, tracking accuracy, structural load</span></div>
+      <div class="ps-step active">Design<span>SolidWorks CAD + FEA validation</span></div>
+      <div class="ps-step active">Build<span>Hardware assembly, wiring &amp; soldering</span></div>
+      <div class="ps-step active">Code<span>C/C++ PID, experimentally gain-tuned</span></div>
+      <div class="ps-step active">Validate<span>Full course completed, structural &amp; tracking confirmed</span></div>
+    </div>
+
+    <p class="proj-desc">
+      This team project covered the full mechatronic development cycle. My personal contributions spanned every domain:
+      physical assembly of chassis and drivetrain; full parametric SolidWorks CAD of structural components;
+      FEA on critical load-bearing members, iterating geometry until peak stress fell within factor-of-safety limits;
+      all electrical wiring, motor driver connection, and soldering; a C/C++ PID control loop tuned experimentally;
+      and the complete mechanical section of the final project report.
+    </p>
+    <p class="proj-desc">
+      <strong>Design process:</strong> chassis geometry was driven by a weight distribution requirement &mdash;
+      sensor placement defined the front overhang, which set the CG target. FEA identified a stress concentration
+      at the wheel mount bracket, resolved by local material addition and fillet geometry. PID gains were tuned
+      sequentially: proportional for responsiveness, derivative to damp oscillation, integral for steady-state tracking.
+    </p>
+
+    <div class="insight">
+      <strong>Design Engineering relevance:</strong> Demonstrates the full design-build-test-validate cycle
+      with structured analysis at each stage. FEA informed geometry before manufacture; PID tuning followed
+      a systematic method, not trial-and-error. Technical writing communicated the rationale clearly to the assessor.
+    </div>
+
+    <div class="highlights">
+      <div class="hl-item">FEA-driven geometry iteration: bracket stress concentration resolved before fabrication</div>
+      <div class="hl-item">PID loop: P&rarr;D&rarr;I sequential tuning validated across straight and curved track sections</div>
+      <div class="hl-item">SolidWorks toleranced CAD for all chassis components &mdash; CG and weight targets met</div>
+      <div class="hl-item">Authored mechanical project report: design rationale, FEA method, and validation outcomes</div>
+    </div>
+
+    <div class="pills">
+      <span class="pill">SolidWorks</span><span class="pill">FEA</span>
+      <span class="pill">C/C++</span><span class="pill">PID Control</span>
+      <span class="pill">Circuit Design</span><span class="pill">Soldering</span>
+      <span class="pill">Technical Writing</span><span class="pill">Embedded Systems</span>
+    </div>
+    <div class="proj-links">
+      <a href="https://junbyungpark.com/project-line-buggy.html">Full project page</a>
+      <a href="https://youtube.com/shorts/d5s5E9G_Bbc?feature=share">Watch test run video</a>
+    </div>
+  </div>
+
+
+  <!-- ── 04 RFL ── -->
+  <div class="project">
+    <div class="proj-header">
+      <span class="proj-num">04 &mdash; Robot Fighting League &mdash; &ldquo;Space Ship&rdquo;</span>
+      <span class="proj-meta">UoM Robotics Society &middot; 2024 &ndash; 2025</span>
+    </div>
+    <h2 class="proj-title">An Antweight (150&nbsp;g) combat robot built from a single strategic insight &mdash; wedge wins &mdash; validated in live competition.</h2>
+
+    <div class="process-strip">
+      <div class="ps-step active">Strategy<span>Arena rules analysed &rarr; wedge dominance identified</span></div>
+      <div class="ps-step active">Concept<span>Zero ground clearance + ultra-low CG</span></div>
+      <div class="ps-step active">Design<span>AutoCAD from blank sheet, 150&nbsp;g budget</span></div>
+      <div class="ps-step active">Optimise<span>Weight, geometry, motor placement iterated</span></div>
+      <div class="ps-step active">Compete<span>Opponents lifted in live competition bouts</span></div>
+    </div>
+
+    <p class="proj-desc">
+      <strong>Design rationale from first principles:</strong> I began by analysing the Antweight ruleset and common failure modes.
+      The insight: a robot that cannot be wedged under, and can wedge under its opponent, wins structurally.
+      That became the non-negotiable constraint around which everything else was designed.
+    </p>
+    <p class="proj-desc">
+      The chassis underside was machined flat to near-zero ground clearance. A forward-angled wedge face generates lift on contact.
+      All heavy components &mdash; batteries and motors &mdash; were placed as low and central as possible to resist toppling.
+      The entire assembly was designed in AutoCAD from blank sheet with weight-budget tracking through every revision
+      to remain within the 150&nbsp;g class limit. Space Ship successfully lifted opponents in live competition.
+    </p>
+
+    <div class="insight">
+      <strong>Design Engineering relevance:</strong> Defined by <em>constraint-led creativity</em> &mdash; a hard mass limit
+      forced rigorous trade-off decisions at every step, and the winning design emerged from a clear strategic framing
+      of the problem. Complexity was deliberately avoided; reliability under impact was the only metric that mattered.
+    </div>
+
+    <div class="highlights">
+      <div class="hl-item">Design philosophy derived from arena rule analysis &mdash; not aesthetics or convention</div>
+      <div class="hl-item">Near-zero ground clearance: chassis machined flat to prevent any opponent gaining purchase</div>
+      <div class="hl-item">CG optimisation through iterative component placement in AutoCAD across revisions</div>
+      <div class="hl-item">150&nbsp;g class limit enforced rigorous mass-budget discipline &mdash; verified in manufacture</div>
+    </div>
+
+    <div class="pills">
+      <span class="pill">AutoCAD</span><span class="pill">Constraint-Led Design</span>
+      <span class="pill">Weight Optimisation</span><span class="pill">CG Analysis</span>
+      <span class="pill">Combat Robotics</span><span class="pill">Iterative Prototyping</span>
+    </div>
+    <div class="proj-links">
+      <a href="https://junbyungpark.com/project-rfl.html">Full project page</a>
+      <a href="https://youtu.be/Uo0IYKp0CUQ">Watch match footage</a>
+    </div>
+  </div>
+
+
+  <!-- ── 05 ETHICAL VIDEO ── -->
+  <div class="project">
+    <div class="proj-header">
+      <span class="proj-num">05 &mdash; Video Generation for Ethically Aligned Design</span>
+      <span class="proj-meta">Independent Project &middot; 2026</span>
+    </div>
+    <h2 class="proj-title">Exploring how generative AI video output can be steered toward ethical intent &mdash; prompt engineering as a design discipline.</h2>
+
+    <div class="process-strip">
+      <div class="ps-step active">Intent<span>Define ethical message &amp; audience</span></div>
+      <div class="ps-step active">Prompt Design<span>Structured briefs in Google AI Studio</span></div>
+      <div class="ps-step active">Generate<span>Veo 3.1 video pipeline</span></div>
+      <div class="ps-step active">Refine<span>Post-edit to close intent gap</span></div>
+      <div class="ps-step active">Reflect<span>AI authorship implications for design</span></div>
+    </div>
+
+    <p class="proj-desc">
+      This project sits at the intersection of <strong>design thinking and AI literacy</strong>.
+      I explored whether &mdash; and how &mdash; the output of a generative video model can be steered to communicate
+      a specific ethical position, rather than producing generic or unintended content.
+    </p>
+    <p class="proj-desc">
+      The workflow: structured prompts built iteratively in Google AI Studio, passed to Veo 3.1 for generation,
+      followed by a deliberate post-editing pass to close the gap between generated output and intended message.
+      The process revealed that <strong>prompt engineering is a form of design authorship</strong> &mdash;
+      the quality of output depends entirely on the clarity and intentionality of the brief.
+    </p>
+
+    <div class="insight">
+      <strong>Design Engineering relevance:</strong> Generative AI is reshaping the design process.
+      Understanding how to direct these tools &mdash; and recognising their limits &mdash; is a core competency
+      for the next generation of design engineers. This project demonstrates critical engagement with emerging
+      tools rather than passive use, which aligns directly with Imperial&rsquo;s innovation and entrepreneurship focus.
+    </div>
+
+    <div class="highlights">
+      <div class="hl-item">Structured prompt design as a design discipline &mdash; iterative brief refinement logged</div>
+      <div class="hl-item">Veo 3.1 generation pipeline: text prompt &rarr; video output &rarr; evaluation &rarr; iterate</div>
+      <div class="hl-item">Post-editing to align AI output with deliberate ethical intent and audience framing</div>
+      <div class="hl-item">Critical reflection on AI as co-author and implications for engineering design practice</div>
+    </div>
+
+    <div class="pills">
+      <span class="pill">Google AI Studio</span><span class="pill">Veo 3.1</span>
+      <span class="pill">Prompt Engineering</span><span class="pill">Generative AI</span>
+      <span class="pill">Video Editing</span><span class="pill">Ethical Design</span>
+    </div>
+    <div class="proj-links">
+      <a href="https://youtu.be/__6KSYva394?si=7sF_fx5RmIuq674p">Watch video</a>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+
+<!-- ── Footer ── -->
+<div class="doc-footer">
+  <span>Junbyung Park &mdash; MSc Design Engineering Portfolio Submission &mdash; Imperial College London, 2026 Entry</span>
+  <span>
+    <a href="https://junbyungpark.com">junbyungpark.com</a>&nbsp;&middot;&nbsp;
+    <a href="https://github.com/JBIS1104">github.com/JBIS1104</a>&nbsp;&middot;&nbsp;
+    <a href="https://linkedin.com/in/junbyungpark">linkedin.com/in/junbyungpark</a>
+  </span>
+</div>
+
+</body>
+</html>

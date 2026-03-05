@@ -473,21 +473,36 @@
       <div class="ps-step active">Design<span>SolidWorks CAD + FEA validation</span></div>
       <div class="ps-step active">Build<span>Hardware assembly, wiring &amp; soldering</span></div>
       <div class="ps-step active">Code<span>C/C++ PID, experimentally gain-tuned</span></div>
-      <div class="ps-step active">Validate<span>Full course completed, structural &amp; tracking confirmed</span></div>
+      <div class="ps-step active">Validate<span>Pre-heats tests passed; heats attempts failed due to sensor failure</span></div>
     </div>
 
     <p class="proj-desc">
       This team project covered the full mechatronic development cycle. My personal contributions spanned every domain:
-      physical assembly of chassis and drivetrain; full parametric SolidWorks CAD of structural components;
-      FEA on critical load-bearing members, iterating geometry until peak stress fell within factor-of-safety limits;
-      all electrical wiring, motor driver connection, and soldering; a C/C++ PID control loop tuned experimentally;
+      physical assembly of chassis and drivetrain; full parametric CAD of structural components; FEA on critical load-bearing
+      members; all electrical wiring, motor driver connection, and soldering; a C/C++ PID control loop tuned experimentally;
       and the complete mechanical section of the final project report.
     </p>
     <p class="proj-desc">
-      <strong>Design process:</strong> chassis geometry was driven by a weight distribution requirement &mdash;
-      sensor placement defined the front overhang, which set the CG target. FEA identified a stress concentration
-      at the wheel mount bracket, resolved by local material addition and fillet geometry. PID gains were tuned
-      sequentially: proportional for responsiveness, derivative to damp oscillation, integral for steady-state tracking.
+      <strong>Hardware:</strong> the buggy is built around an <strong>STM32F401RE (mbed)</strong> microcontroller.
+      The sensor array uses <strong>6&times; TCRT5000 IR sensors</strong> on a custom PCB &mdash; common-emitter
+      configuration, 75&thinsp;&Omega; current-limiting and 4.7&thinsp;k&Omega; output resistors for full 3.3&thinsp;V ADC range,
+      arc-shaped to fit the ball castor and detect curves earlier. Background subtraction (LED on &minus; LED off) removes
+      ambient light interference. The chassis was redesigned with the battery pack positioned <strong>between the
+      gearboxes</strong> to lower the CG, and an upper strut-brace (inspired by the BMW M3 strut tower brace) provides
+      torsion resistance. Plastic standoffs and screws saved ~80&thinsp;g. A <strong>HM-10 BLE module</strong> triggers
+      the 180&deg; turnaround via Bluetooth.
+    </p>
+    <p class="proj-desc">
+      <strong>Control:</strong> a state machine manages line-following, line-lost, stopping, and turnaround states.
+      The PID uses trapezoidal integration, anti-windup, and low-pass filtering. Gains were tuned sequentially
+      (P &rarr; D &rarr; I) across multiple base speeds.
+    </p>
+    <p class="proj-desc">
+      <strong>Heats outcome:</strong> a sensor failure before competition reduced the array from 6 to 4 sensors, creating
+      blind spots. All three timed attempts failed &mdash; losing the line after turnaround (attempt 1), at the first curve
+      (attempt 2), and at the bottom curve after a successful ramp climb (attempt 3). The team did not qualify for the
+      final race, though the mechanical design and control algorithm performed well in pre-heats testing and most TD4
+      marks were secured.
     </p>
 
     <div class="insight">
@@ -497,17 +512,18 @@
     </div>
 
     <div class="highlights">
-      <div class="hl-item">FEA-driven geometry iteration: bracket stress concentration resolved before fabrication</div>
-      <div class="hl-item">PID loop: P&rarr;D&rarr;I sequential tuning validated across straight and curved track sections</div>
-      <div class="hl-item">SolidWorks toleranced CAD for all chassis components &mdash; CG and weight targets met</div>
-      <div class="hl-item">Authored mechanical project report: design rationale, FEA method, and validation outcomes</div>
+      <div class="hl-item">STM32F401RE + custom TCRT5000 PCB: arc-shaped, common-emitter, 75&thinsp;&Omega; / 4k7&thinsp;&Omega; &mdash; full ADC range with background subtraction</div>
+      <div class="hl-item">Chassis redesigned post-TD2: battery between gearboxes lowers CG; upper strut-brace adds torsional rigidity; ~80&thinsp;g saved with plastic hardware</div>
+      <div class="hl-item">PID with trapezoidal integration, anti-windup &amp; low-pass filter; state machine: line-following / line-lost / stopping / turnaround</div>
+      <div class="hl-item">Heats: sensor failure (6&rarr;4) created blind spots; buggy did not complete a timed run but secured most TD4 marks and performed well in pre-heats tests</div>
     </div>
 
     <div class="pills">
-      <span class="pill">SolidWorks</span><span class="pill">FEA</span>
-      <span class="pill">C/C++</span><span class="pill">PID Control</span>
-      <span class="pill">Circuit Design</span><span class="pill">Soldering</span>
-      <span class="pill">Technical Writing</span><span class="pill">Embedded Systems</span>
+      <span class="pill">STM32F401RE</span><span class="pill">C/C++</span>
+      <span class="pill">PID Control</span><span class="pill">State Machine</span>
+      <span class="pill">PCB Design</span><span class="pill">TCRT5000 IR Sensors</span>
+      <span class="pill">FEA</span><span class="pill">Soldering</span>
+      <span class="pill">Bluetooth HM-10</span><span class="pill">Technical Writing</span>
     </div>
     <div class="proj-links">
       <a href="https://junbyungpark.com/project-line-buggy.html">Full project page</a>

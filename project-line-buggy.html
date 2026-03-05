@@ -80,6 +80,53 @@
       </div>
     </section>
 
+    <!-- HARDWARE -->
+    <section class="section-mid">
+      <div class="section-inner">
+        <div class="section-header centered reveal">
+          <p class="eyebrow">Hardware</p>
+          <h2>What&rsquo;s inside.</h2>
+        </div>
+        <div class="timeline reveal-stagger">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <h3>Microcontroller &mdash; STM32F401RE (mbed)</h3>
+              <p>The buggy is controlled by an STM32F401RE microcontroller running mbed. It manages all sensor ADC reads, PID computation, motor PWM output, encoder feedback, and Bluetooth communication with the HM-10 BLE module.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <h3>Sensor Array &mdash; 6&times; TCRT5000 IR Sensors (PCB)</h3>
+              <p>Two iterations of a custom PCB sensor array were designed. The final version used a <strong>common-emitter configuration</strong> with 75&thinsp;&Omega; current-limiting resistors and 4.7&thinsp;k&Omega; output resistors, giving readings across the full 3.3&thinsp;V ADC range. The board was arc-shaped to fit around the ball castor, allowing earlier detection of curves. Background subtraction (IR LED on minus IR LED off) was applied in software to eliminate ambient lighting interference. A sensor failure before heats reduced the working array from 6 to 4 sensors, creating blind spots between readings.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <h3>Chassis &mdash; Redesigned for Low CG &amp; Compactness</h3>
+              <p>The chassis was fully redesigned after TD2. The battery pack was repositioned <strong>between the gearboxes</strong> to lower and centralise the centre of mass, improving cornering stability. An upper strut-brace (inspired by the BMW M3 strut tower brace) links both motor mounts, creating a torsion-resistant structure while doubling as the motor-controller board mount. Plastic hex standoffs and screws replaced steel equivalents, saving approximately 80&thinsp;g. Cutouts in the chassis base removed excess material without compromising structural load paths.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <h3>Drive &amp; Power</h3>
+              <p>Two DC gearbox motors are driven via a motor-controller board, with encoder feedback for closed-loop speed control. Non-rechargeable Duracell batteries were selected over rechargeables to ensure consistent voltage under load during motor tuning and heats runs.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <h3>Control Software &mdash; State Machine + PID</h3>
+              <p>A state machine manages four states: <em>line-following</em>, <em>line-lost</em>, <em>stopping</em>, and <em>turnaround</em>. The weighted-average sensor position feeds a single PID controller with <strong>trapezoidal integration, anti-windup protection, and low-pass filtering</strong>. A Bluetooth-triggered 180&deg; turnaround (via HM-10 BLE) was implemented using encoder-measured distance. Gains were tuned sequentially: P &rarr; D &rarr; I across multiple base speeds.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- GALLERY -->
     <section class="section-mid">
       <div class="section-inner-wide">
@@ -136,15 +183,18 @@
         <div class="section-header centered reveal">
           <p class="eyebrow">Outcome</p>
           <h2>Results.</h2>
-          <p class="lead">The buggy successfully completed the full test course. The mechanical design withstood all dynamic loads without deformation. PID loop tracked the line reliably across straight sections and moderate-radius curves.</p>
+          <p class="lead">The buggy performed well on the pre-heats test track, completing the course multiple times. However, a sensor failure before heats reduced the array from 6 to 4 sensors, creating blind spots that caused all three timed attempts to fail &mdash; losing the line after the turnaround (attempt 1), immediately at the first curve (attempt 2), and at the bottom curve after a successful ramp run (attempt 3). The team did not qualify for the final race, though the mechanical design, control algorithm, and most TD4 marks were secured.</p>
         </div>
         <div class="pills-row reveal" style="justify-content: center; gap: 10px; margin-top: 32px;">
-          <span class="pill">SolidWorks</span>
-          <span class="pill">FEA</span>
+          <span class="pill">STM32F401RE</span>
           <span class="pill">C/C++</span>
           <span class="pill">PID Control</span>
-          <span class="pill">Circuit Design</span>
+          <span class="pill">State Machine</span>
+          <span class="pill">PCB Design</span>
+          <span class="pill">IR Sensors</span>
+          <span class="pill">FEA</span>
           <span class="pill">Soldering</span>
+          <span class="pill">Bluetooth (HM-10)</span>
           <span class="pill">Technical Writing</span>
         </div>
       </div>

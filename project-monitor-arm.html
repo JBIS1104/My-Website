@@ -59,7 +59,7 @@
             <p class="eyebrow">Overview</p>
             <h2>Why it exists.</h2>
             <p>Conventional monitor arms require manual adjustment every time a user changes posture or repositions themselves. This project removes that friction entirely.</p>
-            <p>The arm identifies the user&rsquo;s face via a webcam, computes the required joint angles, and drives servo motors in real time &mdash; keeping the monitor centred on the user&rsquo;s face at all times.</p>
+            <p>An iPad streams live video via MJPEG over HTTPS to a Raspberry Pi 5. The RP5 runs an OpenCV Haar cascade face detector on each incoming frame, computes the pixel offset from frame centre, and drives two servo axes directly via hardware PWM on GPIO pins 18 and 13 &mdash; keeping the monitor centred on the user&rsquo;s face continuously.</p>
             <p>Target applications include desk productivity, smart TVs, portable displays for accessibility, and collaborative workspace screens.</p>
           </div>
           <div class="feature-text reveal" style="transition-delay: 0.1s;">
@@ -73,17 +73,17 @@
               <div class="glance-card">
                 <span class="glance-icon">&#9889;</span>
                 <div class="glance-val">Real-time</div>
-                <div class="glance-label">Live face detection via OpenCV</div>
+                <div class="glance-label">Haar cascade face detection on live MJPEG frames</div>
               </div>
               <div class="glance-card">
                 <span class="glance-icon">&#128736;&#65039;</span>
-                <div class="glance-val">Python</div>
-                <div class="glance-label">HTTP server &rarr; hardware PWM servo control</div>
+                <div class="glance-val">Raspberry Pi 5</div>
+                <div class="glance-label">Hardware PWM on GPIO 18 &amp; 13 via gpiozero/lgpio</div>
               </div>
               <div class="glance-card">
                 <span class="glance-icon">&#128187;</span>
-                <div class="glance-val">SolidWorks</div>
-                <div class="glance-label">Full mechanical system CAD-designed from scratch</div>
+                <div class="glance-val">Fusion 360</div>
+                <div class="glance-label">Full mechanical system CAD-designed in Fusion 360 &amp; AutoCAD</div>
               </div>
             </div>
           </div>
@@ -97,35 +97,35 @@
         <div class="section-header centered reveal">
           <p class="eyebrow">Software pipeline</p>
           <h2>From face to servo.</h2>
-          <p class="lead">The system runs a continuous closed-loop pipeline: detect &rarr; compute &rarr; command &rarr; repeat.</p>
+          <p class="lead">The system runs a continuous closed-loop pipeline entirely on the Raspberry Pi 5: stream &rarr; detect &rarr; compute offset &rarr; PWM &rarr; repeat.</p>
         </div>
         <div class="timeline reveal-stagger">
           <div class="tl-item">
             <div class="tl-dot"></div>
             <div class="tl-body">
-              <h3>1. Face Detection</h3>
-              <p>OpenCV MediaPipe detects the user&rsquo;s face in each webcam frame, returning bounding-box coordinates; the centroid is extracted for the next stage.</p>
+              <h3>1. MJPEG Stream from iPad</h3>
+              <p>An iPad acts as the camera, streaming live video to the Raspberry Pi 5 via MJPEG over HTTPS. The RP5 parses the JPEG boundary markers (<code>\xff\xd8</code> / <code>\xff\xd9</code>) from the raw HTTP byte stream, decodes each frame with OpenCV, and feeds it directly into the detection stage.</p>
             </div>
           </div>
           <div class="tl-item">
             <div class="tl-dot"></div>
             <div class="tl-body">
-              <h3>2. Angle Calculation</h3>
-              <p>Pixel offset from frame centre is mapped to desired joint angles via inverse kinematics. Dead-band filtering prevents jitter on small movements.</p>
+              <h3>2. Haar Cascade Face Detection</h3>
+              <p>Each frame is converted to greyscale and processed by an <strong>OpenCV Haar cascade classifier</strong> (<code>haarcascade_frontalface_default.xml</code>). When multiple faces are present, the largest bounding box by area is selected as the primary target. The centroid of that bounding box is passed to the servo update stage.</p>
             </div>
           </div>
           <div class="tl-item">
             <div class="tl-dot"></div>
             <div class="tl-body">
-              <h3>3. HTTP Command</h3>
-              <p>Target angles are serialised and posted to a lightweight Python HTTP server running on the microcontroller over the local network.</p>
+              <h3>3. Dead-band Offset Calculation</h3>
+              <p>The face centroid is compared against the frame centre. A <strong>dead-band zone (15% of frame width/height)</strong> filters out small movements to prevent servo jitter. Outside the dead-band, the duty cycle is incremented or decremented by a fixed step (0.5%) at 100 ms intervals, clamped between 0% and 100%.</p>
             </div>
           </div>
           <div class="tl-item">
             <div class="tl-dot"></div>
             <div class="tl-body">
-              <h3>4. Hardware PWM</h3>
-              <p>The server decodes the angles, generates hardware-accurate PWM signals, and drives the servo motors to the commanded positions.</p>
+              <h3>4. Hardware PWM on GPIO 18 &amp; 13</h3>
+              <p>PWM signals are generated directly on <strong>GPIO pin 18 (pan/X axis)</strong> and <strong>GPIO pin 13 (tilt/Y axis)</strong> at 400 Hz using <code>gpiozero.PWMOutputDevice</code> with the <code>lgpio</code> pin factory for hardware-accurate timing. On startup, a smooth ramp function moves both servos to their home positions before tracking begins.</p>
             </div>
           </div>
         </div>
@@ -137,7 +137,7 @@
       <div class="section-inner-wide">
         <div class="section-header centered reveal">
           <p class="eyebrow">Mechanical design</p>
-          <h2>Built in SolidWorks.</h2>
+          <h2>Built in Fusion 360 &amp; AutoCAD.</h2>
         </div>
         <div class="img-grid reveal-stagger">
           <div class="img-tile">
@@ -182,12 +182,15 @@
         <div class="pills-row reveal" style="justify-content: center; gap: 10px;">
           <span class="pill">Python</span>
           <span class="pill">OpenCV</span>
-          <span class="pill">MediaPipe</span>
+          <span class="pill">Haar Cascade</span>
+          <span class="pill">MJPEG Streaming</span>
           <span class="pill">Hardware PWM</span>
-          <span class="pill">HTTP Server</span>
-          <span class="pill">SolidWorks</span>
-          <span class="pill">Servo Kinematics</span>
-          <span class="pill">Raspberry Pi / Microcontroller</span>
+          <span class="pill">Raspberry Pi 5</span>
+          <span class="pill">gpiozero</span>
+          <span class="pill">lgpio</span>
+          <span class="pill">Fusion 360</span>
+          <span class="pill">AutoCAD</span>
+          <span class="pill">Inverse Kinematics</span>
         </div>
       </div>
     </section>

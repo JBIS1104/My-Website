@@ -361,7 +361,7 @@
       <div class="ps-step active">User Need<span>Chronic friction of manual repositioning</span></div>
       <div class="ps-step active">Concept<span>Closed-loop face-tracking system</span></div>
       <div class="ps-step active">Design<span>RRR vs RPR kinematic study in Fusion 360 &amp; AutoCAD</span></div>
-      <div class="ps-step active">Prototype<span>Face detect &rarr; recognise &rarr; server &rarr; hardware PWM</span></div>
+      <div class="ps-step active">Prototype<span>iPad MJPEG &rarr; face detect &rarr; hardware PWM on RP5</span></div>
       <div class="ps-step">Validate<span>Ongoing &mdash; iterating to full build</span></div>
     </div>
 
@@ -370,11 +370,11 @@
       The friction is invisible but persistent &mdash; and entirely solvable with sensing and actuation.
     </p>
     <p class="proj-desc">
-      I designed a closed-loop mechatronic system structured as a four-stage pipeline: a webcam feeds frames into an
-      <strong>OpenCV / MediaPipe face detection</strong> module, which locates the face; a <strong>face recognition</strong>
-      layer then confirms the tracked subject; the recognised position is mapped to target joint angles via inverse kinematics
-      and dispatched over a <strong>lightweight HTTP server</strong> to a Raspberry Pi 5 microcontroller driving servo motors
-      via <strong>hardware PWM</strong>. The loop runs continuously &mdash; detect &rarr; recognise &rarr; compute &rarr; command &rarr; repeat.
+      I designed a closed-loop mechatronic system: an iPad streams live video via <strong>MJPEG over HTTPS</strong> to a
+      <strong>Raspberry Pi 5</strong>, which ingests each frame, runs an <strong>OpenCV Haar cascade face detector</strong>
+      to locate the face, computes the pixel offset from frame centre, and drives two servo axes directly via
+      <strong>hardware PWM on GPIO pins 18 and 13</strong> using a dead-band filter to suppress jitter.
+      The loop runs continuously &mdash; stream &rarr; detect &rarr; compute offset &rarr; PWM &rarr; repeat.
     </p>
     <p class="proj-desc">
       <strong>Design exploration:</strong> two joint configurations &mdash; RRR (three revolute joints) and RPR (revolute-prismatic-revolute) &mdash;
@@ -389,16 +389,16 @@
     </div>
 
     <div class="highlights">
-      <div class="hl-item">4-stage pipeline: face detection &rarr; face recognition &rarr; HTTP server &rarr; hardware PWM on Raspberry Pi 5</div>
+      <div class="hl-item">iPad streams MJPEG over HTTPS &rarr; RP5 ingests frames &rarr; Haar cascade detection &rarr; hardware PWM on GPIO 18 &amp; 13</div>
+      <div class="hl-item">Dead-band filter suppresses jitter; smooth ramp function initialises servo to home position on startup</div>
       <div class="hl-item">Kinematic comparison: RRR vs RPR &mdash; workspace, singularity, and load analysis in Fusion 360 &amp; AutoCAD</div>
-      <div class="hl-item">Python HTTP server bridges laptop CV pipeline to embedded microcontroller</div>
-      <div class="hl-item">Full parametric CAD assembly: base, body, elbow, head &mdash; iterated across multiple revisions</div>
+      <div class="hl-item">Full parametric CAD assembly: base, body, elbow, head &mdash; iterated across multiple revisions in Fusion 360</div>
     </div>
 
     <div class="pills">
-      <span class="pill">Python</span><span class="pill">OpenCV</span><span class="pill">MediaPipe</span>
-      <span class="pill">Face Recognition</span><span class="pill">Inverse Kinematics</span><span class="pill">Hardware PWM</span>
-      <span class="pill">Fusion 360</span><span class="pill">AutoCAD</span><span class="pill">Raspberry Pi 5</span><span class="pill">HTTP Server</span>
+      <span class="pill">Python</span><span class="pill">OpenCV</span><span class="pill">Haar Cascade</span>
+      <span class="pill">MJPEG Streaming</span><span class="pill">Hardware PWM</span><span class="pill">Raspberry Pi 5</span>
+      <span class="pill">Fusion 360</span><span class="pill">AutoCAD</span><span class="pill">Inverse Kinematics</span><span class="pill">gpiozero</span>
     </div>
     <div class="proj-links">
       <a href="https://junbyungpark.com/project-monitor-arm.html">Full project page</a>

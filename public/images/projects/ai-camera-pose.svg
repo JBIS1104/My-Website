@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" fill="none">
+  <style>
+    text { font-family: 'Inter', 'Segoe UI', sans-serif; }
+    .title { font-size: 13px; font-weight: 700; fill: #86EFAC; }
+    .label { font-size: 10px; fill: #d6d3d1; }
+    .sublabel { font-size: 9px; fill: #78716c; }
+    .joint { fill: #86EFAC; }
+    .joint-dim { fill: #44403c; }
+    .bone { stroke: #86EFAC; stroke-width: 2; stroke-linecap: round; }
+    .bone-dim { stroke: #44403c; stroke-width: 2; stroke-linecap: round; }
+    .highlight { stroke: #FCA5A5; stroke-width: 3; stroke-linecap: round; }
+    .highlight-joint { fill: #FCA5A5; }
+  </style>
+  <rect width="700" height="400" rx="12" fill="#0c0a09"/>
+  <text x="350" y="30" text-anchor="middle" class="title" font-size="14">POSENET 17-KEYPOINT DETECTION — HAND RAISE LOGIC</text>
+
+  <!-- Person 1: Hands Down (normal) -->
+  <text x="175" y="60" text-anchor="middle" class="label" font-size="12">HANDS DOWN</text>
+  <text x="175" y="76" text-anchor="middle" class="sublabel">is_hands_up() = false</text>
+
+  <!-- Head -->
+  <circle cx="175" cy="110" r="14" stroke="#86EFAC" stroke-width="2" fill="none"/>
+  <circle cx="175" cy="110" r="3" class="joint"/>
+  <!-- Neck -->
+  <line x1="175" y1="124" x2="175" y2="155" class="bone"/>
+  <!-- Shoulders -->
+  <line x1="175" y1="155" x2="135" y2="165" class="bone"/>
+  <line x1="175" y1="155" x2="215" y2="165" class="bone"/>
+  <circle cx="135" cy="165" r="5" class="joint"/>
+  <text x="108" y="163" class="sublabel">[5] L.Shoulder</text>
+  <circle cx="215" cy="165" r="5" class="joint"/>
+  <!-- Left arm down -->
+  <line x1="135" y1="165" x2="120" y2="210" class="bone"/>
+  <line x1="120" y1="210" x2="110" y2="255" class="bone"/>
+  <circle cx="110" cy="255" r="5" class="joint"/>
+  <text x="68" y="258" class="sublabel">[9] L.Wrist</text>
+  <!-- Right arm down -->
+  <line x1="215" y1="165" x2="230" y2="210" class="bone"/>
+  <line x1="230" y1="210" x2="240" y2="255" class="bone"/>
+  <circle cx="240" cy="255" r="5" class="joint"/>
+  <!-- Torso -->
+  <line x1="175" y1="155" x2="175" y2="240" class="bone"/>
+  <!-- Hips -->
+  <line x1="175" y1="240" x2="150" y2="250" class="bone"/>
+  <line x1="175" y1="240" x2="200" y2="250" class="bone"/>
+  <!-- Legs -->
+  <line x1="150" y1="250" x2="145" y2="310" class="bone"/>
+  <line x1="145" y1="310" x2="140" y2="360" class="bone"/>
+  <line x1="200" y1="250" x2="205" y2="310" class="bone"/>
+  <line x1="205" y1="310" x2="210" y2="360" class="bone"/>
+
+  <!-- Wrist below shoulder indicator -->
+  <line x1="90" y1="165" x2="90" y2="255" stroke="#44403c" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="75" y="215" class="sublabel" transform="rotate(-90, 75, 215)">wrist BELOW</text>
+
+  <!-- Person 2: Hand Raised (detected!) -->
+  <text x="500" y="60" text-anchor="middle" class="label" font-size="12" fill="#FCA5A5">HAND RAISED</text>
+  <text x="500" y="76" text-anchor="middle" style="fill:#FCA5A5; font-size:10px;">is_hands_up() = true</text>
+
+  <!-- Green circle above head -->
+  <circle cx="500" cy="88" r="8" fill="#86EFAC" opacity="0.6"/>
+
+  <!-- Head -->
+  <circle cx="500" cy="110" r="14" stroke="#FCA5A5" stroke-width="2" fill="none"/>
+  <circle cx="500" cy="110" r="3" class="highlight-joint"/>
+  <!-- Neck -->
+  <line x1="500" y1="124" x2="500" y2="155" class="highlight"/>
+  <!-- Shoulders -->
+  <line x1="500" y1="155" x2="460" y2="165" class="highlight"/>
+  <line x1="500" y1="155" x2="540" y2="165" class="highlight"/>
+  <circle cx="460" cy="165" r="5" class="highlight-joint"/>
+  <text x="430" y="163" class="sublabel" fill="#FCA5A5">[5]</text>
+  <circle cx="540" cy="165" r="5" class="highlight-joint"/>
+
+  <!-- Left arm RAISED -->
+  <line x1="460" y1="165" x2="445" y2="130" class="highlight"/>
+  <line x1="445" y1="130" x2="440" y2="95" class="highlight"/>
+  <circle cx="440" cy="95" r="6" class="highlight-joint"/>
+  <text x="405" y="93" class="sublabel" fill="#FCA5A5">[9] ABOVE!</text>
+  <!-- Right arm down -->
+  <line x1="540" y1="165" x2="555" y2="210" class="bone"/>
+  <line x1="555" y1="210" x2="565" y2="255" class="bone"/>
+  <circle cx="565" cy="255" r="5" class="joint"/>
+  <!-- Torso -->
+  <line x1="500" y1="155" x2="500" y2="240" class="highlight"/>
+  <!-- Hips -->
+  <line x1="500" y1="240" x2="475" y2="250" class="bone"/>
+  <line x1="500" y1="240" x2="525" y2="250" class="bone"/>
+  <!-- Legs -->
+  <line x1="475" y1="250" x2="470" y2="310" class="bone"/>
+  <line x1="470" y1="310" x2="465" y2="360" class="bone"/>
+  <line x1="525" y1="250" x2="530" y2="310" class="bone"/>
+  <line x1="530" y1="310" x2="535" y2="360" class="bone"/>
+
+  <!-- Wrist above shoulder indicator -->
+  <line x1="420" y1="95" x2="420" y2="165" stroke="#FCA5A5" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="405" y="135" class="sublabel" fill="#FCA5A5" transform="rotate(-90, 405, 135)">wrist ABOVE</text>
+</svg>

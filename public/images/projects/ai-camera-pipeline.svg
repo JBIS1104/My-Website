@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" fill="none">
+  <style>
+    text { font-family: 'Inter', 'Segoe UI', sans-serif; }
+    .title { font-size: 11px; font-weight: 700; fill: #86EFAC; }
+    .label { font-size: 10px; fill: #d6d3d1; }
+    .sublabel { font-size: 8px; fill: #78716c; }
+    .arrow { stroke: #86EFAC; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    .box { rx: 10; ry: 10; stroke-width: 1.5; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#86EFAC"/>
+    </marker>
+  </defs>
+  <rect width="900" height="320" rx="12" fill="#0c0a09"/>
+  <text x="450" y="30" text-anchor="middle" class="title" font-size="14">AI CLASSROOM ASSISTANT — SYSTEM PIPELINE</text>
+
+  <!-- Stage 1: Capture -->
+  <rect x="20" y="60" width="120" height="80" class="box" fill="#1c1917" stroke="#44403c"/>
+  <text x="80" y="90" text-anchor="middle" class="title">1. CAPTURE</text>
+  <text x="80" y="108" text-anchor="middle" class="label">IMX500</text>
+  <text x="80" y="122" text-anchor="middle" class="sublabel">AI Camera</text>
+  <line x1="140" y1="100" x2="165" y2="100" class="arrow"/>
+
+  <!-- Stage 2: Inference -->
+  <rect x="170" y="60" width="120" height="80" class="box" fill="#1c1917" stroke="#44403c"/>
+  <text x="230" y="90" text-anchor="middle" class="title">2. INFERENCE</text>
+  <text x="230" y="108" text-anchor="middle" class="label">PoseNet</text>
+  <text x="230" y="122" text-anchor="middle" class="sublabel">17 keypoints/person</text>
+  <line x1="290" y1="100" x2="315" y2="100" class="arrow"/>
+
+  <!-- Stage 3: Filter -->
+  <rect x="320" y="60" width="120" height="80" class="box" fill="#1c1917" stroke="#44403c"/>
+  <text x="380" y="90" text-anchor="middle" class="title">3. FILTER</text>
+  <text x="380" y="108" text-anchor="middle" class="label">Confidence</text>
+  <text x="380" y="122" text-anchor="middle" class="sublabel">&gt; 0.3 threshold</text>
+  <line x1="440" y1="100" x2="465" y2="100" class="arrow"/>
+
+  <!-- Stage 4: Detect -->
+  <rect x="470" y="60" width="120" height="80" class="box" fill="#1c1917" stroke="#86EFAC"/>
+  <text x="530" y="90" text-anchor="middle" class="title">4. DETECT</text>
+  <text x="530" y="108" text-anchor="middle" class="label">is_hands_up()</text>
+  <text x="530" y="122" text-anchor="middle" class="sublabel">wrist &gt; shoulder</text>
+  <line x1="590" y1="100" x2="615" y2="100" class="arrow"/>
+
+  <!-- Stage 5: Metrics -->
+  <rect x="620" y="60" width="120" height="80" class="box" fill="#1c1917" stroke="#44403c"/>
+  <text x="680" y="90" text-anchor="middle" class="title">5. METRICS</text>
+  <text x="680" y="108" text-anchor="middle" class="label">Attendance</text>
+  <text x="680" y="122" text-anchor="middle" class="sublabel">Questions / Understand</text>
+  <line x1="740" y1="100" x2="765" y2="100" class="arrow"/>
+
+  <!-- Stage 6: Output -->
+  <rect x="770" y="60" width="110" height="80" class="box" fill="#1c1917" stroke="#44403c"/>
+  <text x="825" y="90" text-anchor="middle" class="title">6. OUTPUT</text>
+  <text x="825" y="108" text-anchor="middle" class="label">Flask JSON</text>
+  <text x="825" y="122" text-anchor="middle" class="sublabel">Port 5050</text>
+
+  <!-- Detection logic detail -->
+  <rect x="60" y="180" width="350" height="120" class="box" fill="#1c1917" stroke="#44403c"/>
+  <text x="235" y="205" text-anchor="middle" class="title">HAND-RAISE DETECTION LOGIC</text>
+  <text x="80" y="228" class="label" font-family="monospace" font-size="9">def is_hands_up(keypoints):</text>
+  <text x="90" y="246" class="sublabel" font-family="monospace" font-size="9">left  = keypoints[9].y &lt; keypoints[5].y</text>
+  <text x="90" y="262" class="sublabel" font-family="monospace" font-size="9">right = keypoints[10].y &lt; keypoints[6].y</text>
+  <text x="90" y="278" class="label" font-family="monospace" font-size="9">return left_up or right_up</text>
+
+  <!-- Metrics detail -->
+  <rect x="460" y="180" width="400" height="120" class="box" fill="#1c1917" stroke="#44403c"/>
+  <text x="660" y="205" text-anchor="middle" class="title">REAL-TIME METRICS</text>
+  <text x="480" y="230" class="label" font-size="11">Attendance</text>
+  <text x="620" y="230" class="sublabel" font-size="10">= (valid / total) × 100%</text>
+  <text x="480" y="255" class="label" font-size="11">Questions</text>
+  <text x="620" y="255" class="sublabel" font-size="10">= hands_up_count</text>
+  <text x="480" y="280" class="label" font-size="11">Understanding</text>
+  <text x="620" y="280" class="sublabel" font-size="10">= valid − hands_up_count</text>
+</svg>

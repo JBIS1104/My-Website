@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" fill="none">
+  <style>
+    text { font-family: 'Inter', 'Segoe UI', sans-serif; }
+    .title { font-size: 13px; font-weight: 700; fill: #86EFAC; }
+    .label { font-size: 11px; fill: #d6d3d1; font-weight: 600; }
+    .sublabel { font-size: 9px; fill: #78716c; }
+    .box { rx: 10; ry: 10; stroke-width: 1.5; }
+    .arrow { stroke: #86EFAC; stroke-width: 2; fill: none; marker-end: url(#ah2); }
+    .cross { stroke: #FCA5A5; stroke-width: 3; stroke-linecap: round; }
+  </style>
+  <defs>
+    <marker id="ah2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#86EFAC"/>
+    </marker>
+  </defs>
+  <rect width="800" height="300" rx="12" fill="#0c0a09"/>
+  <text x="400" y="30" text-anchor="middle" class="title" font-size="14">THE CORE CONCEPT — MERGING TWO MANUAL TASKS INTO ONE AI PIPELINE</text>
+
+  <!-- Traditional: Two separate tasks -->
+  <text x="190" y="65" text-anchor="middle" class="label" fill="#FCA5A5">TRADITIONAL (Manual)</text>
+
+  <rect x="50" y="80" width="130" height="60" class="box" fill="#1c1917" stroke="#FCA5A5"/>
+  <text x="115" y="108" text-anchor="middle" class="label">Roll Call</text>
+  <text x="115" y="124" text-anchor="middle" class="sublabel">Manual attendance</text>
+
+  <rect x="200" y="80" width="130" height="60" class="box" fill="#1c1917" stroke="#FCA5A5"/>
+  <text x="265" y="108" text-anchor="middle" class="label">Observation</text>
+  <text x="265" y="124" text-anchor="middle" class="sublabel">Subjective engagement</text>
+
+  <!-- X marks -->
+  <line x1="155" y1="160" x2="170" y2="175" class="cross"/>
+  <line x1="170" y1="160" x2="155" y2="175" class="cross"/>
+  <text x="162" y="195" text-anchor="middle" class="sublabel" fill="#FCA5A5">Slow, separate</text>
+
+  <line x1="255" y1="160" x2="270" y2="175" class="cross"/>
+  <line x1="270" y1="160" x2="255" y2="175" class="cross"/>
+  <text x="262" y="195" text-anchor="middle" class="sublabel" fill="#FCA5A5">Biased, delayed</text>
+
+  <!-- Arrow to new solution -->
+  <line x1="370" y1="110" x2="420" y2="110" class="arrow"/>
+  <text x="395" y="100" text-anchor="middle" class="sublabel">Replace</text>
+
+  <!-- Our solution: One AI pipeline -->
+  <text x="610" y="65" text-anchor="middle" class="label" fill="#86EFAC">OUR SOLUTION (AI Pipeline)</text>
+
+  <rect x="440" y="80" width="160" height="60" class="box" fill="#1c1917" stroke="#86EFAC"/>
+  <text x="520" y="103" text-anchor="middle" class="label">IMX500 Camera</text>
+  <text x="520" y="119" text-anchor="middle" class="sublabel">Single sensor input</text>
+  <line x1="600" y1="110" x2="630" y2="110" class="arrow"/>
+
+  <rect x="635" y="80" width="140" height="60" class="box" fill="#1c1917" stroke="#86EFAC"/>
+  <text x="705" y="103" text-anchor="middle" class="label">PoseNet</text>
+  <text x="705" y="119" text-anchor="middle" class="sublabel">On-device inference</text>
+
+  <!-- Outputs -->
+  <line x1="520" y1="140" x2="520" y2="175" class="arrow"/>
+  <line x1="705" y1="140" x2="705" y2="175" class="arrow"/>
+
+  <rect x="440" y="180" width="160" height="50" class="box" fill="#1c1917" stroke="#44403c"/>
+  <text x="520" y="203" text-anchor="middle" class="label">Attendance</text>
+  <text x="520" y="218" text-anchor="middle" class="sublabel">Auto headcount</text>
+
+  <rect x="635" y="180" width="140" height="50" class="box" fill="#1c1917" stroke="#44403c"/>
+  <text x="705" y="203" text-anchor="middle" class="label">Engagement</text>
+  <text x="705" y="218" text-anchor="middle" class="sublabel">Hand-raise tracking</text>
+
+  <!-- Result -->
+  <rect x="480" y="250" width="260" height="40" class="box" fill="#14532d" stroke="#86EFAC"/>
+  <text x="610" y="275" text-anchor="middle" class="title">BOTH TASKS — ONE CAMERA — REAL-TIME</text>
+  <line x1="520" y1="230" x2="570" y2="250" stroke="#86EFAC" stroke-width="1"/>
+  <line x1="705" y1="230" x2="660" y2="250" stroke="#86EFAC" stroke-width="1"/>
+</svg>
